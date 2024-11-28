@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-primaryBlue font-manrope;
+  }
+
+  input {
+    @apply bg-inputBg py-[15px] px-[20px];
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-5xl font-semibold;
+  }
+}
