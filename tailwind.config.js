@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         manrope: ["Manrope", "sans-serif"],
+        tinos: ["Tinos", "serif"],
       },
       colors: {
         primaryBlue: "#001E9F",
