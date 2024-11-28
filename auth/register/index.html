@@ -23,29 +23,57 @@
     <title>HammerPrice</title>
     <script type="module" src="../../src/app.js"></script>
   </head>
-  <body class="mx-20">
+  <body class="flex flex-col gap-20 mx-20 my-10 bg-skyBlue">
     <header class="w-full flex items-center justify-between py-5">
       <a href="/" class="flex-1 text-4xl uppercase"
         ><span class="font-semibold">Hammer</span
         ><span class="font-normal">Price</span></a
       >
-      <form
-        name="search"
-        class="w-full flex-1 flex items-center justify-center gap-3"
-      >
-        <i class="fa-solid fa-magnifying-glass size-7"></i>
-        <div class="w-full">
-          <label class="hidden">Search</label>
-          <input class="w-full" placeholder="Search through listings ..." />
-        </div>
-      </form>
-      <div class="flex-1 flex gap-3 justify-end text-xl">
-        <a href="" class="">Sell</a>
-        <a href="/auth/login/" class="">Login</a>
-      </div>
     </header>
-    <main>
-      <h1 class="text-black"></h1>
+    <main class="flex justify-center">
+      <form name="login" class="form" name="createPost">
+        <div class="w-full flex justify-between items-center">
+          <h1 class="text-[32px]">Create account</h1>
+          <a href="/auth/login/">Login</a>
+        </div>
+        <div class="w-full flex flex-col items-end gap-3">
+          <div class="w-full flex flex-col gap-3">
+            <label for="email" class="">Name</label>
+            <input
+              class="px-3 w-full"
+              id="register-name"
+              type="text"
+              name="name"
+              required
+            />
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label for="email" class="">Email</label>
+            <input
+              class="px-3 w-full"
+              id="register-email"
+              type="email"
+              name="email"
+              placeholder="yourmail@stud.noroff.no"
+              required
+            />
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <label for="password" class="">Password</label>
+            <input
+              class="w-full px-3"
+              type="password"
+              name="password"
+              id="register-password"
+              required
+            />
+          </div>
+        </div>
+        <div class="w-full flex justify-end items-center">
+          <button class="btn" type="submit" id="login-button">Register</button>
+        </div>
+        <p id="login-error"></p>
+      </form>
     </main>
   </body>
 </html>

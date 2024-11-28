@@ -20,6 +20,10 @@
   }
 
   .btn {
-    @apply px-[20px] py-[15px] text-white uppercase font-semibold bg-primaryBlue hover:bg-hoverBlue focus:bg-focusBlue rounded-xl shadow-lg;
+    @apply px-[20px] py-[15px] text-white tracking-wide uppercase font-semibold bg-primaryBlue hover:bg-hoverBlue focus:bg-focusBlue rounded-xl shadow-lg;
+  }
+
+  .form {
+    @apply flex flex-col items-center gap-10 p-10 w-1/2 bg-white shadow-lg rounded-xl;
   }
 }
