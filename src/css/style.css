@@ -10,12 +10,16 @@
   }
 
   input {
-    @apply bg-inputBg py-[15px] px-[20px];
+    @apply bg-inputBg py-[15px] px-[20px] text-black;
   }
 
   h1,
   h2,
   h3 {
     @apply text-5xl font-semibold;
+  }
+
+  .btn {
+    @apply px-[20px] py-[15px] text-white uppercase font-semibold bg-primaryBlue hover:bg-hoverBlue focus:bg-focusBlue rounded-xl shadow-lg;
   }
 }

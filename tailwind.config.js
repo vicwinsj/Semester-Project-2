@@ -14,7 +14,10 @@ module.exports = {
       },
       colors: {
         primaryBlue: "#001E9F",
+        hoverBlue: "#5A6FCB",
+        focusBlue: "#001053",
         inputBg: "#F4F4F4",
+        skyBlue: "#E2EBF2",
       },
     },
   },
