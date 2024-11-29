@@ -19,6 +19,7 @@ module.exports = {
         focusBlue: "#001053",
         inputBg: "#F4F4F4",
         skyBlue: "#E2EBF2",
+        salmonRed: "#FF7B7B",
       },
     },
   },

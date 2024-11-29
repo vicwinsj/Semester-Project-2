@@ -10,14 +10,19 @@
     @apply flex flex-col gap-20 m-20 text-primaryBlue font-manrope;
   }
 
-  input {
-    @apply bg-inputBg py-[10px] px-[20px] text-black;
+  input,
+  textarea {
+    @apply bg-inputBg py-[10px] px-[20px] text-black resize-none outline-none;
   }
 
   h1,
   h2,
   h3 {
     @apply text-5xl font-semibold;
+  }
+
+  form {
+    @apply flex items-start gap-10;
   }
 }
 
@@ -26,8 +31,12 @@
     @apply px-[20px] py-[15px] text-white tracking-wide uppercase font-semibold bg-primaryBlue hover:bg-hoverBlue focus:bg-focusBlue rounded-xl shadow-lg;
   }
 
-  .form {
-    @apply flex flex-col items-center gap-10 p-10 w-1/2 bg-white shadow-lg rounded-xl;
+  .alt-btn {
+    @apply px-[20px] py-[15px] text-white tracking-wide font-semibold bg-black hover:bg-gray-700;
+  }
+
+  .auth-form {
+    @apply flex-col items-center p-10 w-1/2 bg-white shadow-lg rounded-xl;
   }
 }
 
