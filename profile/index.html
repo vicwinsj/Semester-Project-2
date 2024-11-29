@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HammerPrice</title>
+    <script type="module" src="../src/app.js"></script>
+  </head>
+  <body class="">
+    <header class="w-full flex items-center justify-between py-5">
+      <a href="/" class="flex-1 text-4xl uppercase"
+        ><span class="font-semibold">Hammer</span
+        ><span class="font-normal">Price</span></a
+      >
+      <form
+        name="search"
+        class="w-full flex-1 flex flex-row items-center justify-center gap-3"
+      >
+        <i class="fa-solid fa-magnifying-glass size-7"></i>
+        <div class="w-full">
+          <label for="search" class="hidden">Search</label>
+          <input
+            type="text"
+            name="search"
+            class="w-full"
+            placeholder="Search through listings ..."
+          />
+        </div>
+      </form>
+      <div class="flex-1 flex gap-3 justify-end text-xl">
+        <a href="/listing/create/" class="">Sell</a>
+        <a href="/auth/register/" class="">Register</a>
+        <a href="/auth/login/" class="">Login</a>
+      </div>
+    </header>
+    <main class="w-full flex flex-col gap-20">
+      <h1 class="font-tinos text-7xl font-normal text-textGray">
+        Hello, <span>username!</span>
+      </h1>
+      <div
+        class="w-full flex flex-col text-[32px] rounded-xl shadow-md p-10 gap-10 bg-skyBlue"
+      >
+        <h2>Overview</h2>
+        <div class="w-full flex gap-10">
+          <div class="flex-[1] flex items-start">
+            <div class="flex items-center gap-10">
+              <div class="text-xl text-black">
+                <p class="font-semibold">Username</p>
+                <p class="font-semibold">
+                  Credits: <span class="font-normal">1000 C</span>
+                </p>
+              </div>
+              <div class="relative text-center">
+                <div class="w-32 h-32 bg-gray-300 rounded-full">
+                  <img src="" class="" />
+                </div>
+                <a class="absolute left-0 right-0 bottom-5 text-base" href=""
+                  >Update</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex-[2] flex flex-col gap-3">
+            <div class="w-full h-80 bg-gray-300">
+              <img src="" />
+            </div>
+            <p class="text-xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+              recusandae omnis eos dolorum incidunt ipsum in, fugit harum
+              blanditiis voluptatum aliquam saepe voluptatibus dicta, illum
+              aliquid id! Quis, neque magnam!
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

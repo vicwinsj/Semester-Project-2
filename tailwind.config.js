@@ -20,6 +20,7 @@ module.exports = {
         inputBg: "#F4F4F4",
         skyBlue: "#E2EBF2",
         salmonRed: "#FF7B7B",
+        textGray: "#7B7B7B",
       },
     },
   },

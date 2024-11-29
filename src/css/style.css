@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply flex flex-col gap-20 m-20 text-primaryBlue font-manrope;
+    @apply flex flex-col gap-20 mx-20 my-10 text-primaryBlue font-manrope;
   }
 
   input,
