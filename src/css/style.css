@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply flex flex-col gap-20 mx-20 my-10 text-primaryBlue font-manrope;
+    @apply flex flex-col gap-10 mx-3 md:mx-20 my-10 text-primaryBlue font-manrope;
   }
 
   input,
@@ -36,7 +36,15 @@
   }
 
   .auth-form {
-    @apply flex-col items-center p-10 w-1/2 bg-white shadow-lg rounded-xl;
+    @apply w-full md:w-1/2 flex-col items-center p-3 md:p-10 bg-white shadow-lg rounded-xl;
+  }
+
+  .loader {
+    @apply hidden absolute inset-0 justify-center items-center space-x-2;
+  }
+
+  .loader div {
+    @apply bg-primaryBlue rounded-full w-4 h-4;
   }
 }
 
@@ -48,4 +56,62 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+@keyframes bounce1 {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce2 {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce3 {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+.loader div {
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.animate-bounce1 {
+  animation-name: bounce1;
+  animation-duration: 1.2s;
+}
+
+.animate-bounce2 {
+  animation-name: bounce2;
+  animation-duration: 1.2s;
+  animation-delay: 0.2s;
+}
+
+.animate-bounce3 {
+  animation-name: bounce3;
+  animation-duration: 1.2s;
+  animation-delay: 0.4s;
 }

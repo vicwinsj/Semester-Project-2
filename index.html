@@ -24,12 +24,19 @@
     <script type="module" src="./src/app.js"></script>
   </head>
   <body class="">
-    <header class="w-full flex items-center justify-between py-5">
-      <a href="/" class="flex-1 text-4xl uppercase"
-        ><span class="font-semibold">Hammer</span
+    <header
+      class="w-full flex flex-col md:flex-row items-center justify-between py-5"
+    >
+      <a href="/" class="flex-1 text-4xl uppercase">
+        <!-- <img
+          src="/images/favicon/favicon.svg"
+          alt="HammerPrice logo"
+          class="md:hidden"
+        /> -->
+        <span class="font-semibold">Hammer</span
         ><span class="font-normal">Price</span></a
       >
-      <form
+      <!-- <form
         name="search"
         class="w-full flex-1 flex flex-row items-center justify-center gap-3"
       >
@@ -39,37 +46,56 @@
           <input
             type="text"
             name="search"
-            class="w-full"
+            class="hidden md:inline-block w-full"
             placeholder="Search through listings ..."
           />
         </div>
-      </form>
-      <div class="flex-1 flex gap-3 justify-end text-xl">
-        <a href="/listing/create/" class="">Sell</a>
+      </form> -->
+      <div class="flex-1 flex gap-3 items-center justify-end text-xl">
+        <form
+          name="search"
+          class="w-full flex-1 flex flex-row items-center justify-center gap-3"
+        >
+          <i class="cursor-pointer fa-solid fa-magnifying-glass size-7"></i>
+          <div class="w-full">
+            <label for="search" class="hidden">Search</label>
+            <input
+              type="text"
+              name="search"
+              class="hidden md:inline-block w-full"
+              placeholder="Search through listings ..."
+            />
+          </div>
+        </form>
+        <a href="/listing/create/" class="flex flex-col gap-1">Auction</a>
         <a href="/auth/register/" class="">Register</a>
         <a href="/auth/login/" class="">Login</a>
         <a href="/profile/" class="">Profile</a>
       </div>
     </header>
-    <main class="flex flex-col gap-20">
-      <div class="w-full h-full flex flex-col gap-10">
-        <h1 class="text-black text-5xl">
+    <main class="flex flex-col gap-10 h-full">
+      <div id="hottest-listing" class="relative w-full h-full flex flex-col gap-3">
+        <h1 class="text-black text-3xl">
           What people are crazy about at the moment
         </h1>
-        <div
-          class="relative w-screen h-full flex bg-skyBlue gap-10 p-20 -mx-20"
+        <!-- <div
+          id="popular-container"
+          class="flex flex-col md:flex-row relative w-screen h-full bg-skyBlue gap-10 p-3 md:p-20 -mx-3 md:-mx-20"
         >
           <div class="absolute inset-0 bg-skyBlue -z-10"></div>
-          <div class="flex-1">
+          <div class="flex-[1]">
             <img
+              id="popular-img"
               src="https://plus.unsplash.com/premium_photo-1732104312846-d4feffdc5ba2?q=80&w=2884&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
           </div>
           <div class="flex-1 flex flex-col justify-between">
             <div class="flex flex-col gap-3">
-              <h2>Title</h2>
-              <p class="font-bold">Ends in ...</p>
-              <p>
+              <h2 id="popular-title" class="text-2xl">Title</h2>
+              <p class="font-bold">
+                Ends in <span id="popular-ends-in"></span>>
+              </p>
+              <p id="popular-description">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Debitis assumenda quasi ad in iure nam, est esse quam ex odio
                 iste id nihil aspernatur deserunt, expedita sed ratione
@@ -78,10 +104,15 @@
             </div>
             <div class="flex flex-col gap-3">
               <div class="flex items-center justify-between">
-                <p class="text-red-500">50 bids</p>
-                <p>Current bid: 300 C</p>
+                <p id="popular-bid-amounts" class="font-semibold">50 bids</p>
+                <p id="popular-current-bid">
+                  Current bid: <span class="font-semibold">300 C</span>
+                </p>
               </div>
-              <form name="bid" class="flex items-center gap-3 w-full">
+              <form
+                name="bid"
+                class="flex flex-col md:flex-row items-center gap-3 w-full"
+              >
                 <div class="w-full">
                   <label class="hidden">Bid amount</label>
                   <input class="w-full" placeholder="Enter amount" />
@@ -90,109 +121,15 @@
               </form>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
-      <h2 class="text-3xl">Latest listings</h2>
-      <div class="w-full flex overflow-x-auto scrollbar-hide space-x-3">
-        <div class="flex flex-col gap-3 shrink-0 w-1/3">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 shrink-0 w-1/3">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 shrink-0 w-1/3">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 shrink-0 w-1/3 scrollbar-hide">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
+      <div class="relative flex flex-col gap-3">
+        <h2 class="text-3xl">Latest listings</h2>
+        <div id="latest-listings" class="w-full flex overflow-x-auto scrollbar-hide space-x-3">
       </div>
-      <h2 class="text-3xl">Listings expiring soon</h2>
-      <div class="w-full flex overflow-x-auto scrollbar-hide space-x-3">
-        <div class="flex flex-col gap-3 shrink-0 w-1/3">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 shrink-0 w-1/3">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 shrink-0 w-1/3">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 shrink-0 w-1/3 scrollbar-hide">
-          <div class="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1732279446331-c88852566f83?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3fHx8ZW58MHx8fHx8"
-              class="w-full aspect-square object-cover"
-            />
-          </div>
-          <div>
-            <p class="font-semibold">Title</p>
-            <p>Current bid:</p>
-          </div>
-        </div>
+      <div class="relative flex flex-col gap-3">
+        <h2 class="text-3xl">Listings expiring soon</h2>
+        <div id="expiring-listings" class="w-full flex overflow-x-auto scrollbar-hide space-x-3">
       </div>
     </main>
   </body>
