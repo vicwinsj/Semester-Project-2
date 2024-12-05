@@ -1,5 +1,6 @@
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";
+import { listingUrl } from "./listingUrl.js";
 
 export function generateSearchResults(listings, targetContainer) {
   targetContainer.classList.add(
@@ -20,6 +21,9 @@ export function generateSearchResults(listings, targetContainer) {
       "w-80",
       "cursor-pointer"
     );
+    listingContainer.onclick = function () {
+      listingUrl(listing);
+    };
 
     const imgContainer = document.createElement("div");
     imgContainer.classList.add("overflow-hidden", "w-full", "h-80");

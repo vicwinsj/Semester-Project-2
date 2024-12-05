@@ -1,12 +1,12 @@
 export function findCurrentBid(listing) {
-  let highestBid = 0;
+  let currentBid = { amount: 0, bidder: { name: "No bids yet" } };
 
   if (listing.bids && listing.bids.length > 0) {
     listing.bids.forEach((bid) => {
-      if (bid.amount > highestBid) {
-        highestBid = bid.amount;
+      if (bid.amount > currentBid.amount) {
+        currentBid = bid;
       }
     });
   }
-  return highestBid;
+  return currentBid;
 }

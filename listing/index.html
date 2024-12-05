@@ -44,114 +44,88 @@
         <a href="/auth/login/" class="">Login</a>
       </div>
     </header>
-    <main class="w-full flex flex-col gap-10">
-      <div class="w-full flex gap-10">
-        <div class="flex-[1] h-56 bg-gray-300">
-          <img src="" class="object-contain" />
-        </div>
-        <div class="flex-[1] self-start flex flex-col gap-3">
-          <h1 class="flex-[1] text-black">Almost new bike</h1>
-          <div class="w-full flex items-center gap-3">
-            <p>sold by</p>
-            <div class="w-12 h-12 rounded-full bg-gray-300">
-              <img src="" />
+    <main class="w-full flex-col gap-10">
+      <div id="listing-content" class="hidden w-full flex-col gap-10">
+        <div class="w-full flex gap-10">
+          <div id="listing-img" class="flex-[1] h-full"></div>
+          <div class="flex-[1] self-start flex flex-col gap-3">
+            <h1 id="listing-title" class="flex-[1] text-black"></h1>
+            <div class="w-full flex items-center gap-3">
+              <p>sold by</p>
+              <a
+                id="listing-seller-link"
+                href=""
+                class="flex items-center gap-3"
+              >
+                <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    id="listing-seller-avatar"
+                    src=""
+                    alt=""
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p id="listing-seller" class="font-semibold"></p>
+              </a>
             </div>
-            <p class="font-semibold">Username</p>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-            doloribus culpa nisi tempora facilis? Officiis veniam cupiditate
-            natus sunt, nulla hic! Voluptas qui ducimus sit odio eius maiores
-            in! Facere?
-          </p>
-        </div>
-      </div>
-      <div class="flex flex-col p-10 gap-10 rounded-xl shadow-md bg-skyBlue">
-        <div class="flex justify-between">
-          <form name="search" class="w-full flex-1 flex items-center gap-3">
-            <div class="flex flex-col gap-3">
-              <label class="">Bidding amount</label>
-              <div class="flex gap-3">
-                <input class="w-full" placeholder="Enter amount" />
-                <button class="btn min-w-32">Make bid</button>
-              </div>
-            </div>
-          </form>
-          <div>
-            <p class="font-semibold">Auction ends in 5 days</p>
+            <p id="listing-description"></p>
           </div>
         </div>
-        <div class="border border-textGray"></div>
-        <div class="flex gap-3">
-          <div class="flex-[1] flex flex-col gap-3">
-            <div>
-              <p>Current bid: 300C</p>
+        <div class="flex flex-col p-10 gap-10 rounded-xl shadow-md bg-skyBlue">
+          <div class="flex justify-between">
+            <div class="flex-[1]">
+              <p id="auction-expiry" class="font-semibold"></p>
             </div>
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-full bg-gray-300">
-                <img src="" />
+            <form
+              name="search"
+              class="flex-[1] flex items-center justify-end gap-3"
+            >
+              <div class="flex flex-col gap-3">
+                <label class="hidden">Bidding amount</label>
+                <div class="flex gap-3">
+                  <input class="w-full" placeholder="Enter amount" />
+                  <button class="btn min-w-32">Place bid</button>
+                </div>
               </div>
-              <p class="font-semibold">Username</p>
-            </div>
-            <p>25.12.2024</p>
+            </form>
           </div>
-          <details class="flex-[1]">
-            <summary class="list-none cursor-pointer flex gap-3 items-center">
-              View all bids <i class="fa-solid fa-list"></i>
-            </summary>
-            <div class="flex flex-col gap-3">
-              <div class="flex items-center justify-between">
-                <p>250 C</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-12 rounded-full bg-gray-300">
-                    <img src="" />
-                  </div>
-                  <p class="font-semibold">Username</p>
-                </div>
-                <p>24.12.2024</p>
+          <div class="border border-textGray"></div>
+          <div class="flex items-start gap-3">
+            <div class="flex-[1] flex justify-between items-center gap-3">
+              <div>
+                <p>
+                  Current bid:
+                  <span id="listing-current-bid" class="font-semibold"></span>
+                </p>
               </div>
-              <div class="flex items-center justify-between">
-                <p>250 C</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-12 rounded-full bg-gray-300">
-                    <img src="" />
-                  </div>
-                  <p class="font-semibold">Username</p>
+              <a
+                id="listing-current-bidder-link"
+                href=""
+                class="flex items-center gap-3"
+              >
+                <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    id="listing-current-bidder-avatar"
+                    src=""
+                    class="w-full h-full object-cover"
+                  />
                 </div>
-                <p>24.12.2024</p>
-              </div>
-              <div class="flex items-center justify-between">
-                <p>250 C</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-12 rounded-full bg-gray-300">
-                    <img src="" />
-                  </div>
-                  <p class="font-semibold">Username</p>
-                </div>
-                <p>24.12.2024</p>
-              </div>
-              <div class="flex items-center justify-between">
-                <p>250 C</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-12 rounded-full bg-gray-300">
-                    <img src="" />
-                  </div>
-                  <p class="font-semibold">Username</p>
-                </div>
-                <p>24.12.2024</p>
-              </div>
-              <div class="flex items-center justify-between">
-                <p>250 C</p>
-                <div class="flex items-center gap-3">
-                  <div class="w-12 h-12 rounded-full bg-gray-300">
-                    <img src="" />
-                  </div>
-                  <p class="font-semibold">Username</p>
-                </div>
-                <p>24.12.2024</p>
-              </div>
+                <p id="listing-current-bidder" class="font-semibold">
+                  Username
+                </p>
+              </a>
+              <p id="listing-current-bid-date"></p>
             </div>
-          </details>
+            <details id="listing-bids-details" class="hidden flex-[1]">
+              <summary class="list-none cursor-pointer flex gap-3 items-center">
+                View all bids <i class="fa-solid fa-list"></i>
+              </summary>
+              <div
+                id="listing-bids-container"
+                class="flex flex-col-reverse gap-3"
+              ></div>
+            </details>
+          </div>
         </div>
       </div>
     </main>

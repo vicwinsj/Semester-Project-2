@@ -1,5 +1,6 @@
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";
+import { listingUrl } from "./listingUrl.js";
 
 export function generateListingCarousels(listings, targetContainer) {
   listings.forEach((listing) => {
@@ -12,6 +13,9 @@ export function generateListingCarousels(listings, targetContainer) {
       "w-80",
       "cursor-pointer"
     );
+    listingContainer.onclick = function () {
+      listingUrl(listing);
+    };
 
     const imgContainer = document.createElement("div");
     imgContainer.classList.add("overflow-hidden", "w-full", "h-80");
@@ -38,7 +42,7 @@ export function generateListingCarousels(listings, targetContainer) {
     currentBid.innerHTML = "Current bid: ";
 
     const bidValue = document.createElement("span");
-    bidValue.innerHTML = findCurrentBid(listing) + " C";
+    bidValue.innerHTML = findCurrentBid(listing).amount;
     bidValue.classList.add("font-semibold");
     currentBid.appendChild(bidValue);
 
