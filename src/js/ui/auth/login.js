@@ -13,7 +13,8 @@ export async function onLogin(event) {
     const isLoggedIn = await login(loginData);
 
     if (isLoggedIn) {
-      window.history.go(-1);
+      console.log("success login");
+      window.location.href = "/";
     } else {
     }
   } catch (error) {

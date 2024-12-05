@@ -1,10 +1,16 @@
-export async function accountError(data) {
-  let errorMessage = "Unknown error occurred";
+export function authError(data) {
+  const errorElements = document.querySelectorAll(".auth-error");
 
-  if (data.errors && Array.isArray(data.errors)) {
-    errorMessage = data.errors.map((err) => err.message + ".").join("\n");
-  } else if (data.error && data.error.message) {
-    errorMessage = data.error.message + ".";
-  }
-  throw new Error(errorMessage);
+  const errorMessage =
+    data.errors && Array.isArray(data.errors)
+      ? data.errors.map((err) => err.message).join("<br>")
+      : data.error && data.error.message
+      ? data.error.message
+      : "An unknown error occurred.";
+
+  errorElements.forEach((element) => {
+    element.innerHTML = errorMessage;
+  });
+
+  console.error("Auth error:", errorMessage); // Log for debugging
 }

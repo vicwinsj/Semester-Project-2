@@ -8,15 +8,13 @@ export async function onRegister(event) {
     password: document.getElementById("register-password").value,
   };
 
-  const errorMessage = document.getElementById("register-error");
-
   try {
     const isRegistered = await register(registerData);
 
     if (isRegistered) {
-      window.history.go(-1); //
+      window.location.href = "/";
     }
   } catch (error) {
-    errorMessage.innerText = `${error.message}`;
+    console.error("Error in onRegister:", error.message);
   }
 }

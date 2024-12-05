@@ -1,22 +1,19 @@
 import { API_AUTH_REGISTER } from "../constants.js";
-import { accountError } from "./error.js";
+import { authError } from "./error.js";
 import { doFetch } from "../../utilities/doFetch.js";
 
 export async function register({ name, email, password, bio, banner, avatar }) {
   try {
-    const response = await doFetch(`${API_AUTH_REGISTER}`, {
+    const data = await doFetch(`${API_AUTH_REGISTER}`, {
       method: "POST",
-      body: JSON.stringify({ name, email, password, bio, banner, avatar }),
+      body: { name, email, password, bio, banner, avatar },
     });
-    const data = response.json();
-
-    if (!response.ok) {
-      accountError(data);
-      throw new Error(data.message || "Registration failed");
-    }
-
-    return response.ok;
+    return true;
   } catch (error) {
-    throw new Error(error.message);
+    const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
+    console.error("Registration error details:", errorDetails);
+
+    authError(errorDetails);
+    throw error;
   }
 }

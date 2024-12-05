@@ -1,6 +1,6 @@
 import { API_AUTH_LOGIN } from "../constants.js";
 import { getKey } from "./key.js";
-import { accountError } from "./error.js";
+import { authError } from "./error.js";
 import { doFetch } from "../../utilities/doFetch.js";
 
 export async function login({ email, password }) {
@@ -9,18 +9,13 @@ export async function login({ email, password }) {
       method: "POST",
       body: { email: email, password: password },
     });
-
-    if (data) {
-      getKey(data);
-      window.location.href = "/";
-      return true;
-    } else {
-      accountError(data);
-      return false;
-    }
+    getKey(data);
+    return true;
   } catch (error) {
-    const errorMessage = document.getElementById("login-error");
-    errorMessage.innerText = `${error.message}`;
-    return false;
+    const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
+    console.error("Login error details:", errorDetails);
+
+    authError(errorDetails);
+    throw error;
   }
 }
