@@ -1,11 +1,10 @@
 import { accessToken } from "../api/auth/key.js";
-import { editListingUrl, listingUrl } from "./listingUrl.js";
+import { editListingUrl, listingUrl, profileUrl } from "./listingUrl.js";
 import { headers } from "../api/headers.js";
 import { generateImageCarousel } from "./imageCarousel.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";
 import { creationDate } from "./formatDate.js";
-// import { getLoggedInUser } from "./getUser.js";
 
 export async function generateListingContent(listing) {
   const title = document.getElementById("listing-title");
@@ -16,7 +15,7 @@ export async function generateListingContent(listing) {
   generateImageCarousel(listing, imgContainer);
 
   const sellerLink = document.getElementById("listing-seller-link");
-  // sellerLink.href = ;
+  sellerLink.href = `/profile/index.html?name=${listing.seller.name}`;
 
   const avatar = document.getElementById("listing-seller-avatar");
   avatar.src = listing.seller?.avatar?.url;
@@ -49,7 +48,7 @@ export async function generateListingContent(listing) {
   const currentBidderLink = document.getElementById(
     "listing-current-bidder-link"
   );
-  // currentBidderLink.href = ;
+  currentBidderLink.href = `/profile/index.html?name=${currentBid.bidder.name}`;
 
   const currentBidDate = document.getElementById("listing-current-bid-date");
   currentBidDate.innerText = creationDate(currentBid);
@@ -68,7 +67,7 @@ export async function generateListingContent(listing) {
       bidAmount.innerText = bid.amount;
 
       const bidderContainer = document.createElement("a");
-      // bidderContainer.href = `profile/{}`;
+      bidderContainer.href = `/profile/index.html?name=${bid.bidder.name}`;
       bidderContainer.classList.add("flex", "items-center", "gap-3");
 
       const imgContainer = document.createElement("div");

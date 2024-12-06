@@ -26,4 +26,7 @@ export default defineConfig({
     host: true,
     port: 5176,
   },
+  resolve: {
+    alias: {},
+  },
 });

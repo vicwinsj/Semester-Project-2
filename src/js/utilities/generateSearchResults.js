@@ -50,7 +50,7 @@ export function generateSearchResults(listings, targetContainer) {
     currentBid.innerHTML = "Current bid: ";
 
     const bidValue = document.createElement("span");
-    bidValue.innerHTML = findCurrentBid(listing) + " C";
+    bidValue.innerHTML = findCurrentBid(listing).amount;
     bidValue.classList.add("font-semibold");
     currentBid.appendChild(bidValue);
 

@@ -31,20 +31,13 @@ export async function getListings({
   }
 
   try {
-    const response = await fetch(url, {
-      headers: headers(),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    const validListings = data.data.filter(
+    const response = await doFetch(url);
+    const listings = response.data;
+    const activeListings = listings.filter(
       (listing) => !isExpired(listing.endsAt)
     );
 
-    return validListings;
+    return activeListings;
   } catch (error) {
     console.error("Fetching error:", error.message);
     throw error;

@@ -48,20 +48,34 @@
       <h1 class="text-4xl text-gray-500 font-tinos font-thin">
         Make a new listing
       </h1>
-      <form class="flex-col">
+      <form name="createListing" class="flex-col">
         <div class="w-full flex flex-col gap-5">
           <h2 class="text-2xl">Details</h2>
           <div class="flex flex-col gap-3 w-full md:w-1/4">
-            <label class="">Deadline date</label>
-            <input class="w-full" placeholder="Deadline date (DD-MM-YYYY)" />
+            <label class="" for="end-date">End date</label>
+            <input
+              id="create-end-date"
+              name="end-date"
+              type="datetime-local"
+              class="w-full cursor-pointer"
+              required
+            />
           </div>
           <div class="flex flex-col gap-3 w-full md:w-1/2">
-            <label class="">Title</label>
-            <input class="w-full" placeholder="Title" />
+            <label class="" for="title">Title</label>
+            <input
+              id="create-title"
+              class="w-full"
+              name="title"
+              type="text"
+              placeholder="Title"
+              required
+            />
           </div>
           <div class="flex flex-col gap-3 w-full">
             <label class="" for="description">Description</label>
             <textarea
+              id="create-description"
               class="w-full h-72"
               name="description"
               placeholder="Description"
@@ -70,29 +84,17 @@
         </div>
         <div class="w-full flex flex-col gap-5">
           <h2 class="text-2xl">Images</h2>
-          <button class="self-start alt-btn">
+          <button id="create-img-btn" class="self-start alt-btn">
             Add image <i class="fa-regular fa-image"></i>
           </button>
-          <div class="w-full">
-            <div class="flex items-center gap-3">
-              <div class="flex-1 flex flex-col gap-3">
-                <label for="img-url" class="">Image URL</label>
-                <div class="flex items-center">
-                  <input
-                    type="url"
-                    name="img-url"
-                    class="w-full"
-                    placeholder="Image URL"
-                  />
-                  <div
-                    class="text-salmonRed cursor-pointer flex items-center justify-center w-10 h-10"
-                  >
-                    <i class="fa-solid fa-x"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div id="create-img-urls" class="w-full flex flex-col"></div>
+        </div>
+        <div class="w-full flex flex-col gap-5">
+          <h2 class="text-2xl">Tags</h2>
+          <button id="create-tag-btn" class="self-start alt-btn">
+            Add tag <i class="fa-solid fa-hashtag"></i>
+          </button>
+          <div id="create-tags" class="w-full flex flex-col"></div>
         </div>
         <button class="btn" type="submit">Auction item</button>
       </form>

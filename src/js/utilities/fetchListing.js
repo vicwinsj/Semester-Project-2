@@ -7,9 +7,7 @@ export async function getListing({ id, _seller = true, _bids = true }) {
   if (_seller) url.searchParams.append("_seller", _seller);
   if (_bids) url.searchParams.append("_bids", "true");
   try {
-    const response = await doFetch(url, {
-      method: "GET",
-    });
+    const response = await doFetch(url);
     const listing = response.data;
     return listing;
   } catch (error) {

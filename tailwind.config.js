@@ -7,6 +7,11 @@ module.exports = {
     "./profile/**/*.html",
     "./listing/**/*.html",
   ],
+  safelist: [
+    {
+      pattern: /bg-\[url\('.*?'\)\]/,
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {

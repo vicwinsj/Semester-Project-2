@@ -1,24 +1,29 @@
-import { API_SOCIAL_POSTS } from "../constants.js";
+import { API_AUCTION_LISTINGS } from "../constants.js";
 import { doFetch } from "../../utilities/doFetch.js";
 
-export async function createPost({ title, body, tags, media }) {
-  console.log("inside createpost");
+export async function createListing({
+  title,
+  description,
+  endsAt,
+  tags,
+  media,
+}) {
   const data = {
     title: title,
-    body: body,
+    description: description,
+    endsAt: endsAt,
     tags: tags,
     media: media,
   };
-  console.log(data);
 
   try {
-    const response = await doFetch(API_SOCIAL_POSTS, {
+    const response = await doFetch(API_AUCTION_LISTINGS, {
       method: "POST",
       body: data,
     });
 
     if (response) {
-      window.location.href = "/index.html";
+      window.location.href = "/";
     }
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);

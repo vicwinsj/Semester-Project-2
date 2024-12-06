@@ -50,43 +50,51 @@
         <a href="/auth/login/" class="">Login</a>
       </div>
     </header>
-    <main class="w-full flex flex-col gap-20">
+    <main class="relative w-full flex flex-col gap-20">
       <h1 class="font-tinos text-7xl font-normal text-textGray">
-        Hello, <span>username!</span>
+        Hello, <span id="profile-greeting"></span>!
       </h1>
       <div
-        class="w-full flex flex-col text-[32px] rounded-xl shadow-md p-10 gap-10 bg-skyBlue"
+        id="profile-banner"
+        class="w-full h-full bg-cover bg-center flex flex-col text-[32px] rounded-xl shadow-md p-10 gap-10"
       >
-        <h2>Overview</h2>
+        <h2 class="bg-skyBlue bg-opacity-70 p-3 w-fit">Overview</h2>
         <div class="w-full flex flex-col md:flex-row gap-10">
           <div class="flex-[1] flex items-start">
             <div class="flex items-center gap-10">
-              <div class="text-xl text-black">
-                <p class="font-semibold">Username</p>
+              <div class="text-xl text-black p-3 bg-skyBlue bg-opacity-70">
                 <p class="font-semibold">
-                  Credits: <span class="font-normal">1000 C</span>
+                  Username:
+                  <span id="profile-username" class="font-normal"></span>
+                </p>
+                <p class="font-semibold">
+                  Credits:
+                  <span id="profile-credits" class="font-normal"></span>
                 </p>
               </div>
-              <div class="relative text-center">
-                <div class="w-32 h-32 bg-gray-300 rounded-full">
-                  <img src="" class="" />
+              <div
+                class="relative text-center w-32 h-32 bg-gray-300 rounded-full overflow-hidden"
+              >
+                <div class="w-full h-full bg-gray-300">
+                  <img
+                    id="profile-avatar"
+                    class="w-full h-full object-cover"
+                    src=""
+                    alt=""
+                  />
                 </div>
-                <a class="absolute left-0 right-0 bottom-5 text-base" href=""
-                  >Update</a
+                <button
+                  id="update-avatar"
+                  class="hidden absolute left-0 right-0 bottom-0 pt-3 pb-3 text-base font-semibold text-white bg-skyBlue bg-opacity-5 hover:bg-opacity-30"
+                  href=""
                 >
+                  Update
+                </button>
               </div>
             </div>
           </div>
-          <div class="flex-[2] flex flex-col gap-3">
-            <div class="w-full h-80 bg-gray-300">
-              <img src="" />
-            </div>
-            <p class="text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-              recusandae omnis eos dolorum incidunt ipsum in, fugit harum
-              blanditiis voluptatum aliquam saepe voluptatibus dicta, illum
-              aliquid id! Quis, neque magnam!
-            </p>
+          <div class="flex-[2]">
+            <p id="profile-bio" class="text-xl p-3 bg-opacity-70"></p>
           </div>
         </div>
       </div>
