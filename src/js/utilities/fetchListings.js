@@ -1,6 +1,5 @@
 import { API_AUCTION_LISTINGS } from "../api/constants.js";
 import { doFetch } from "./doFetch.js";
-import { headers } from "../api/headers.js";
 import { isExpired } from "./isExpired.js";
 
 export async function getListings({
@@ -17,7 +16,7 @@ export async function getListings({
   let url;
   if (search) {
     url = new URL(`${API_AUCTION_LISTINGS}/search`);
-    url.searchParams.append("q", search); // Append search query
+    url.searchParams.append("q", search);
   } else {
     url = new URL(`${API_AUCTION_LISTINGS}`);
     url.searchParams.append("sort", sort);
@@ -43,5 +42,3 @@ export async function getListings({
     throw error;
   }
 }
-
-// export const posts = await getPosts();

@@ -77,14 +77,19 @@
               <p id="auction-expiry" class="font-semibold"></p>
             </div>
             <form
-              name="search"
+              name="placeBid"
               class="flex-[1] flex items-center justify-end gap-3"
             >
               <div class="flex flex-col gap-3">
-                <label class="hidden">Bidding amount</label>
+                <label class="hidden" for="listing-bid">Bidding amount</label>
                 <div class="flex gap-3">
-                  <input class="w-full" placeholder="Enter amount" />
-                  <button class="btn min-w-32">Place bid</button>
+                  <input
+                    class="w-full"
+                    name="listing-bid"
+                    type="number"
+                    placeholder="Enter amount"
+                  />
+                  <button type="submit" class="btn min-w-32">Place bid</button>
                 </div>
               </div>
             </form>
@@ -93,7 +98,7 @@
           <div class="flex items-start gap-3">
             <div class="flex-[1] flex justify-between items-center gap-3">
               <div>
-                <p>
+                <p id="listing-no-bids">
                   Current bid:
                   <span id="listing-current-bid" class="font-semibold"></span>
                 </p>

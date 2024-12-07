@@ -6,6 +6,8 @@ import {
   showLoader,
   hideLoader,
 } from "../../utilities/loader.js";
+import { placeBid } from "../../ui/global/bid.js";
+import { getUserFromToken } from "../../utilities/decodeToken.js";
 
 async function renderListing() {
   const content = document.getElementById("listing-content");
@@ -20,6 +22,21 @@ async function renderListing() {
   const listing = await getListing({ id: id });
   document.title = `${listing.title} | HammerPrice`;
   generateListingContent(listing);
+
+  const form = document.forms.placeBid;
+  const loggedInUser = getUserFromToken();
+
+  if (listing.seller.name === loggedInUser.name) {
+    form.classList.add("hidden");
+  }
+
+  form.addEventListener("submit", (event) => {
+    const id = listing.id;
+    const amount = parseFloat(
+      document.querySelector("input[name='listing-bid']").value
+    );
+    placeBid(event, id, { amount });
+  });
 
   hideLoader(loader);
 

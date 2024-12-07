@@ -38,20 +38,30 @@ export async function generateListingContent(listing) {
   const currentBidder = document.getElementById("listing-current-bidder");
   currentBidder.innerText = currentBid.bidder.name;
 
-  const currentBidderAvatar = document.getElementById(
-    "listing-current-bidder-avatar"
-  );
-  currentBidderAvatar.src = currentBid.bidder.avatar.url;
-  currentBidderAvatar.alt =
-    currentBid.bidder.avatar.alt || currentBid.bidder.avatar.url;
-
   const currentBidderLink = document.getElementById(
     "listing-current-bidder-link"
   );
-  currentBidderLink.href = `/profile/index.html?name=${currentBid.bidder.name}`;
 
-  const currentBidDate = document.getElementById("listing-current-bid-date");
-  currentBidDate.innerText = creationDate(currentBid);
+  if (listing.bids.length < 1) {
+    const noBids = document.getElementById("listing-no-bids");
+    noBids.innerText = "No bids yet!";
+  }
+
+  if (listing.bids.length !== 0) {
+    const currentBidderAvatar = document.getElementById(
+      "listing-current-bidder-avatar"
+    );
+    currentBidderAvatar.src = currentBid.bidder.avatar.url;
+    currentBidderAvatar.alt =
+      currentBid.bidder.avatar.alt || currentBid.bidder.avatar.url;
+
+    currentBidderLink.href = `/profile/index.html?name=${currentBid.bidder.name}`;
+
+    const currentBidDate = document.getElementById("listing-current-bid-date");
+    currentBidDate.innerText = creationDate(currentBid);
+  } else {
+    currentBidderLink.classList.add("hidden");
+  }
 
   const bidsContainer = document.getElementById("listing-bids-container");
 

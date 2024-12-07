@@ -3,6 +3,7 @@ import { findCurrentBid } from "./currentBid.js";
 import { listingUrl } from "./listingUrl.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { generateImageCarousel } from "./imageCarousel.js";
+import { placeBid } from "../ui/global/bid.js";
 
 export async function generateMostPopular(targetContainer) {
   const listing = await getListingWithMostBids();
@@ -77,7 +78,7 @@ export async function generateMostPopular(targetContainer) {
   bids.append(numberOfBids, currentBid);
 
   const form = document.createElement("form");
-  form.name = "bid";
+  form.name = "placeBid";
   form.classList.add(
     "flex",
     "flex-col",
@@ -92,9 +93,12 @@ export async function generateMostPopular(targetContainer) {
 
   const label = document.createElement("label");
   label.classList.add("hidden");
+  label.htmlFor = "bid-amount";
 
   const input = document.createElement("input");
   input.classList.add("w-full");
+  input.name = "bid-amount";
+  input.type = "number";
 
   inputContainer.append(label, input);
   inputContainer.addEventListener("click", (event) => {
@@ -104,9 +108,16 @@ export async function generateMostPopular(targetContainer) {
   const button = document.createElement("button");
   button.innerHTML = "Make bid";
   button.classList.add("btn", "min-w-32");
+  button.type = "submit";
+
   button.addEventListener("click", (event) => {
     event.stopPropagation();
     event.preventDefault();
+
+    const id = listing.id;
+    const amount = parseFloat(input.value);
+
+    placeBid(event, id, { amount });
   });
 
   form.append(inputContainer, button);
