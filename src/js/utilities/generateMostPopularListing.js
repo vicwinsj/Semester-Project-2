@@ -4,33 +4,27 @@ import { listingUrl } from "./listingUrl.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { generateImageCarousel } from "./imageCarousel.js";
 import { placeBid } from "../ui/global/bid.js";
+import { accessToken } from "../api/auth/key.js";
 
 export async function generateMostPopular(targetContainer) {
   const listing = await getListingWithMostBids();
 
-  const container = document.createElement("div");
+  const container = document.createElement("section");
   container.classList.add(
     "flex",
     "flex-col",
-    "md:flex-row",
-    "relative",
-    "w-screen",
+    "lg:flex-row",
     "h-full",
-    "bg-skyBlue",
     "gap-10",
-    "p-3",
-    "md:p-20",
-    "-mx-3",
-    "md:-mx-20",
-    "cursor-pointer"
+    "cursor-pointer",
+    "z-10",
+    "regular-padding",
+    "bg-transparent"
   );
 
   container.onclick = function () {
     listingUrl(listing);
   };
-
-  const background = document.createElement("div");
-  background.classList.add("absolute", "inset-0", "bg-skyBlue", "-z-10");
 
   const imgContainer = document.createElement("div");
   imgContainer.classList.add("flex-[1]", "overflow-hidden");
@@ -88,6 +82,10 @@ export async function generateMostPopular(targetContainer) {
     "w-full"
   );
 
+  if (!accessToken) {
+    form.classList.add("hidden");
+  }
+
   const inputContainer = document.createElement("div");
   inputContainer.classList.add("w-full");
 
@@ -127,6 +125,6 @@ export async function generateMostPopular(targetContainer) {
   textContainer.append(title, countdown, description);
   contentContainer.append(textContainer, bidContainer);
 
-  container.append(background, imgContainer, contentContainer);
+  container.append(imgContainer, contentContainer);
   targetContainer.appendChild(container);
 }

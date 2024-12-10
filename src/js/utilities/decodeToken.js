@@ -4,7 +4,8 @@ export function getUserFromToken() {
   const accessToken = localStorage.getItem("accessToken");
 
   if (!accessToken) {
-    throw new Error("Access token is missing. User is not logged in.");
+    console.warn("Access token is missing. User is not logged in.");
+    return null;
   }
 
   const user = jwtDecode(accessToken);

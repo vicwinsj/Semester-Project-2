@@ -17,6 +17,16 @@ export async function generateListingContent(listing) {
   const sellerLink = document.getElementById("listing-seller-link");
   sellerLink.href = `/profile/index.html?name=${listing.seller.name}`;
 
+  if (accessToken) {
+    sellerLink.href = `/profile/index.html?name=${listing.seller.name}`;
+  } else {
+    sellerLink.href = "#";
+    sellerLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("You must be logged in to view profiles.");
+    });
+  }
+
   const avatar = document.getElementById("listing-seller-avatar");
   avatar.src = listing.seller?.avatar?.url;
   avatar.alt = listing.seller?.avatar?.alt || listing.seller?.avatar?.url;
@@ -41,6 +51,16 @@ export async function generateListingContent(listing) {
   const currentBidderLink = document.getElementById(
     "listing-current-bidder-link"
   );
+
+  if (accessToken) {
+    currentBidderLink.href = `/profile/index.html?name=${currentBid.bidder.name}`;
+  } else {
+    currentBidderLink.href = "#";
+    currentBidderLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("You must be logged in to view profiles.");
+    });
+  }
 
   if (listing.bids.length < 1) {
     const noBids = document.getElementById("listing-no-bids");
@@ -77,13 +97,22 @@ export async function generateListingContent(listing) {
       bidAmount.innerText = bid.amount;
 
       const bidderContainer = document.createElement("a");
-      bidderContainer.href = `/profile/index.html?name=${bid.bidder.name}`;
       bidderContainer.classList.add("flex", "items-center", "gap-3");
+
+      if (accessToken) {
+        bidderContainer.href = `/profile/index.html?name=${bid.bidder.name}`;
+      } else {
+        bidderContainer.href = "#";
+        bidderContainer.addEventListener("click", (event) => {
+          event.preventDefault();
+          alert("You must be logged in to view profiles.");
+        });
+      }
 
       const imgContainer = document.createElement("div");
       imgContainer.classList.add(
-        "w-12",
-        "h-12",
+        "w-8",
+        "h-8",
         "rounded-full",
         "bg-gray-300",
         "overflow-hidden"

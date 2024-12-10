@@ -6,8 +6,12 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply relative flex flex-col items-center;
+  }
+
   body {
-    @apply flex flex-col gap-10 mx-3 md:mx-20 my-10 text-primaryBlue font-manrope;
+    @apply flex flex-col items-center gap-10 my-10 text-primaryBlue font-manrope;
   }
 
   input,
@@ -23,6 +27,10 @@
 
   form {
     @apply flex items-start gap-10;
+  }
+
+  a {
+    @apply hover:text-hoverBlue;
   }
 }
 
@@ -55,6 +63,15 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+  .regular-margin {
+    @apply max-w-7xl w-full mx-3 md:mx-12;
+  }
+  .regular-padding {
+    @apply max-w-7xl w-full px-3 md:px-12;
+  }
+  .carousel-padding {
+    @apply pl-3 md:pl-12 ml-12 -mr-12;
   }
 }
 

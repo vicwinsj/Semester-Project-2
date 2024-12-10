@@ -1,15 +1,29 @@
-import { createLoader, showLoader, hideLoader } from "./loader.js";
-import { getListings } from "./fetchListings.js";
-import { generateSearchResults } from "./generateSearchResults.js";
+import {
+  createLoader,
+  showLoader,
+  hideLoader,
+} from "../../utilities/loader.js";
+import { getListings } from "../../utilities/fetchListings.js";
+import { generateSearchResults } from "../../utilities/generateSearchResults.js";
 
 export async function search() {
   const searchForm = document.querySelector("form[name='search']");
-  const searchInput = searchForm.querySelector("input[name='search']");
+  const searchInput = document.querySelector("input[name='search']");
   const searchContainer = document.querySelector("main");
 
   searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+
     const searchKeyword = searchInput.value.trim();
+
+    if (!searchKeyword) {
+      return;
+    }
+
+    const baseUrl = window.location.origin;
+    const newUrl = `${baseUrl}/?q=${encodeURIComponent(searchKeyword)}`;
+    window.history.replaceState({}, document.title, newUrl);
+
     searchContainer.innerHTML = "";
 
     const searchResults = document.createElement("div");
@@ -21,10 +35,6 @@ export async function search() {
 
     const resultsMessage = document.createElement("p");
     searchContainer.append(resultsMessage);
-
-    if (!searchKeyword) {
-      return;
-    }
 
     const loader = createLoader();
     searchResults.append(loader);

@@ -20,13 +20,16 @@ async function renderListing() {
 
   const id = getId();
   const listing = await getListing({ id: id });
+  console.log(listing);
   document.title = `${listing.title} | HammerPrice`;
   generateListingContent(listing);
 
   const form = document.forms.placeBid;
   const loggedInUser = getUserFromToken();
 
-  if (listing.seller.name === loggedInUser.name) {
+  if (!loggedInUser) {
+    form.classList.add("hidden");
+  } else if (loggedInUser && listing.seller.name === loggedInUser.name) {
     form.classList.add("hidden");
   }
 

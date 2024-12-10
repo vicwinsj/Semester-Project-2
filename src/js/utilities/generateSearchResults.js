@@ -18,7 +18,7 @@ export function generateSearchResults(listings, targetContainer) {
       "flex-col",
       "gap-3",
       "shrink-0",
-      "w-80",
+      "w-70",
       "cursor-pointer"
     );
     listingContainer.onclick = function () {

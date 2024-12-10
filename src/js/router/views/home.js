@@ -8,8 +8,7 @@ import {
   showLoader,
   hideLoader,
 } from "../../utilities/loader.js";
-import { search } from "../../utilities/search.js";
-// import { accessToken } from "../../api/auth/key.js";
+import { accessToken } from "../../api/auth/key.js";
 
 export default async function renderHome() {
   const hottestLoader = createLoader();
@@ -28,7 +27,6 @@ export default async function renderHome() {
   showLoader(latestLoader);
   showLoader(expiringLoader);
 
-  await search();
   await generateMostPopular(hottestListing);
 
   hideLoader(hottestLoader);
@@ -43,7 +41,6 @@ export default async function renderHome() {
     sortOrder: "asc",
     limit: 12,
   });
-  console.log(expiringListings);
   await generateListingCarousels(expiringListings, expiringListingsCarousel);
 
   hideLoader(expiringLoader);

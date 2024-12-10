@@ -1,5 +1,6 @@
 import { doFetch } from "./doFetch.js";
 import { API_AUCTION_PROFILES } from "../api/constants.js";
+import { accessToken } from "../api/auth/key.js";
 
 export async function fetchUserProfile(username, { _listings, _wins } = {}) {
   const url = new URL(`${API_AUCTION_PROFILES}/${username}`);

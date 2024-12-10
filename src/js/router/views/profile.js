@@ -4,8 +4,6 @@ import { getUserFromToken } from "../../utilities/decodeToken.js";
 import { onUpdateInitializing } from "../../ui/profile/update.js";
 import { getName } from "../../utilities/getId.js";
 
-authGuard();
-
 export function loggedInUserUrl(user) {
   const currentUrl = new URL(window.location.href);
 
@@ -24,13 +22,11 @@ async function generateUserProfile() {
   let user;
 
   if (!nameFromUrl) {
-    user = await fetchUserProfile(loggedInUser.name);
     loggedInUserUrl(loggedInUser);
+    user = await fetchUserProfile(loggedInUser.name);
   } else {
     user = await fetchUserProfile(nameFromUrl);
   }
-
-  console.log(user);
 
   const greeting = document.getElementById("profile-greeting");
   greeting.innerText = user.name;
@@ -44,8 +40,6 @@ async function generateUserProfile() {
   const avatar = document.getElementById("profile-avatar");
   avatar.src = user.avatar.url;
   avatar.alt = user.avatar.alt;
-
-  console.log("Avatar URL:", user.avatar.url);
 
   const banner = document.getElementById("profile-banner");
   banner.style.backgroundImage = `url('${user.banner.url}')`;
