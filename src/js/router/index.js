@@ -1,4 +1,4 @@
-const basePath = "/semester-project-2";
+const basePath = "/Semester-Project-2";
 
 export default async function router(pathname = window.location.pathname) {
   let cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
