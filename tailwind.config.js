@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,11 +8,6 @@ module.exports = {
     "./profile/**/*.html",
     "./listing/**/*.html",
   ],
-  // safelist: [
-  //   {
-  //     pattern: /bg-\[url\('.*?'\)\]/,
-  //   },
-  // ],
   theme: {
     extend: {
       fontFamily: {
@@ -29,5 +25,4 @@ module.exports = {
       },
     },
   },
-  // plugins: [require("@tailwindcss/aspect-ratio")],
 };
