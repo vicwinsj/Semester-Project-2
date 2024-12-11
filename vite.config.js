@@ -1,9 +1,10 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import ghPages from "vite-plugin-gh-pages";
 
 export default defineConfig({
   appType: "mpa",
-  base: "/",
+  base: "/Semester-Project-2/",
   css: {
     devSourcemap: true,
   },
@@ -29,4 +30,5 @@ export default defineConfig({
   resolve: {
     alias: {},
   },
+  plugins: [ghPages()],
 });

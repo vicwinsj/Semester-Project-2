@@ -1,6 +1,6 @@
 import { getListing } from "../../utilities/fetchListing.js";
 import { generateListingContent } from "../../utilities/generateListing.js";
-import { getId } from "../../utilities/getId.js";
+import { getId } from "../../utilities/getFromUrl.js";
 import {
   createLoader,
   showLoader,

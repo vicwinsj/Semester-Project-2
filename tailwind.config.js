@@ -7,11 +7,11 @@ module.exports = {
     "./profile/**/*.html",
     "./listing/**/*.html",
   ],
-  safelist: [
-    {
-      pattern: /bg-\[url\('.*?'\)\]/,
-    },
-  ],
+  // safelist: [
+  //   {
+  //     pattern: /bg-\[url\('.*?'\)\]/,
+  //   },
+  // ],
   theme: {
     extend: {
       fontFamily: {
@@ -29,5 +29,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
+  // plugins: [require("@tailwindcss/aspect-ratio")],
 };

@@ -2,7 +2,7 @@ import { authGuard } from "../../utilities/authGuard.js";
 import { fetchUserProfile } from "../../utilities/fetchProfile";
 import { getUserFromToken } from "../../utilities/decodeToken.js";
 import { onUpdateInitializing } from "../../ui/profile/update.js";
-import { getName } from "../../utilities/getId.js";
+import { getName } from "../../utilities/getFromUrl.js";
 import {
   createLoader,
   showLoader,
