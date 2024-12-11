@@ -1,6 +1,5 @@
 export default async function router(pathname = window.location.pathname) {
-  const isGitHubPages = location.hostname.includes("github.io");
-  const basePath = isGitHubPages ? "/Semester-Project-2/" : "/";
+  const basePath = "/Semester-Project-2";
 
   let cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
 
@@ -13,7 +12,7 @@ export default async function router(pathname = window.location.pathname) {
     // case "/auth/":
     //   view = await import("./views/auth.js");
     //   break;
-    case "/auth/login/":
+    case "Semester-Project-2/auth/login/":
       view = await import("./views/login.js");
       break;
     case "/auth/register/":

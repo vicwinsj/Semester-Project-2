@@ -1,8 +1,4 @@
-import {
-  createLoader,
-  showLoader,
-  hideLoader,
-} from "../../utilities/loader.js";
+import { createLoader } from "../../utilities/loader.js";
 import { getListings } from "../../utilities/fetchListings.js";
 import { generateSearchResults } from "../../utilities/generateSearchResults.js";
 

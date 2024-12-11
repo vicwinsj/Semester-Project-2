@@ -9,7 +9,7 @@ import {
 import { placeBid } from "../../ui/global/bid.js";
 import { getUserFromToken } from "../../utilities/decodeToken.js";
 
-async function renderListing() {
+export default async function renderListing() {
   const content = document.getElementById("listing-content");
 
   const container = document.querySelector("main");
@@ -48,5 +48,3 @@ async function renderListing() {
 
   // toggleEditButton(editButton);
 }
-
-renderListing();
