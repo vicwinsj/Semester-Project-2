@@ -1,6 +1,7 @@
-const basePath = "/Semester-Project-2";
-
 export default async function router(pathname = window.location.pathname) {
+  const isGitHubPages = location.hostname.includes("github.io");
+  const basePath = isGitHubPages ? "/Semester-Project-2/" : "/";
+
   let cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
 
   let view;

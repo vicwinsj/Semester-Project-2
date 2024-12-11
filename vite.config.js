@@ -1,10 +1,11 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import ghPages from "vite-plugin-gh-pages";
+
+const isVercel = process.env.VERCEL === "1";
 
 export default defineConfig({
   appType: "mpa",
-  base: "/Semester-Project-2/",
+  base: isVercel ? "/" : "/Semester-Project-2/",
   css: {
     devSourcemap: true,
   },

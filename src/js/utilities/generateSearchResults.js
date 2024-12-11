@@ -45,7 +45,7 @@ export function generateSearchResults(listings, targetContainer) {
     }
 
     const bidContainer = document.createElement("div");
-    const title = document.createElement("p");
+    const title = document.createElement("h3");
     title.innerHTML = listing.title;
     const currentBid = document.createElement("p");
     currentBid.innerHTML = "Current bid: ";
