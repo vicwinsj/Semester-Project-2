@@ -1,11 +1,7 @@
 import { getListing } from "../../utilities/fetchListing.js";
 import { generateListingContent } from "../../utilities/generateListing.js";
 import { getId } from "../../utilities/getFromUrl.js";
-import {
-  createLoader,
-  showLoader,
-  hideLoader,
-} from "../../utilities/loader.js";
+import { createLoader } from "../../utilities/loader.js";
 import { placeBid } from "../../ui/global/bid.js";
 import { getUserFromToken } from "../../utilities/decodeToken.js";
 
@@ -16,11 +12,9 @@ export default async function renderListing() {
   const loader = createLoader();
   container.append(loader);
 
-  showLoader(loader);
-
   const id = getId();
   const listing = await getListing({ id: id });
-  console.log(listing);
+
   document.title = `${listing.title} | HammerPrice`;
   generateListingContent(listing);
 
@@ -41,7 +35,7 @@ export default async function renderListing() {
     placeBid(event, id, { amount });
   });
 
-  hideLoader(loader);
+  loader.remove();
 
   content.classList.remove("hidden");
   content.classList.add("flex");

@@ -3,11 +3,7 @@ import { fetchUserProfile } from "../../utilities/fetchProfile";
 import { getUserFromToken } from "../../utilities/decodeToken.js";
 import { onUpdateInitializing } from "../../ui/profile/update.js";
 import { getName } from "../../utilities/getFromUrl.js";
-import {
-  createLoader,
-  showLoader,
-  hideLoader,
-} from "../../utilities/loader.js";
+import { createLoader } from "../../utilities/loader.js";
 
 export default async function renderProfile() {
   const main = document.querySelector("main");
@@ -15,14 +11,12 @@ export default async function renderProfile() {
   const content = document.getElementById("profile-content");
   main.appendChild(loader);
 
-  showLoader(loader);
-
   await generateUserProfile();
 
   content.classList.remove("hidden");
   content.classList.add("flex");
 
-  hideLoader(loader);
+  loader.remove();
 
   main.classList.add("relative");
 }
