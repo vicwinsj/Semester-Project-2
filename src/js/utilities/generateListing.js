@@ -65,6 +65,8 @@ export async function generateListingContent(listing) {
   if (listing.bids.length < 1) {
     const noBids = document.getElementById("listing-no-bids");
     noBids.innerText = "No bids yet!";
+
+    currentBidAmount.innerText = "";
   }
 
   if (listing.bids.length !== 0) {
@@ -88,12 +90,14 @@ export async function generateListingContent(listing) {
   if (listing.bids.length > 1) {
     const bidsDetails = document.getElementById("listing-bids-details");
     bidsDetails.classList.remove("hidden");
+    bidsDetails.classList.add("flex");
 
     listing.bids.forEach((bid) => {
       const bidContainer = document.createElement("div");
       bidContainer.classList.add("flex", "items-center", "justify-between");
 
       const bidAmount = document.createElement("p");
+      bidAmount.classList.add("font-semibold");
       bidAmount.innerText = bid.amount;
 
       const bidderContainer = document.createElement("a");

@@ -18,7 +18,9 @@ export function onUpdateInitializing(event, user) {
   const updateContainer = document.createElement("div");
   updateContainer.classList.add(
     "z-1",
-    "w-1/2",
+    "w-full",
+    "md:w-2/3",
+    "xl:w-1/2",
     "h-full",
     "p-10",
     "absolute",
@@ -31,20 +33,22 @@ export function onUpdateInitializing(event, user) {
     "rounded-xl",
     "shadow-lg",
     "flex",
-    "items-center",
+    "flex-col",
+    "items-end",
     "gap-10"
   );
 
   const avatarContainer = document.createElement("div");
   avatarContainer.classList.add(
-    "flex-[1]",
+    "w-64",
+    "h-64",
     "bg-gray-300",
     "rounded-full",
     "overflow-hidden"
   );
 
   const avatar = document.createElement("img");
-  avatar.classList.add("w-64", "h-64", "object-cover");
+  avatar.classList.add("w-full", "h-full", "object-cover");
   avatar.src = user.avatar.url;
   avatar.alt = user.avatar.alt;
 
@@ -58,7 +62,12 @@ export function onUpdateInitializing(event, user) {
   );
 
   const exitButtonContainer = document.createElement("div");
-  exitButtonContainer.classList.add("flex", "justify-end");
+  exitButtonContainer.classList.add(
+    "flex",
+    "justify-end",
+    "text-primaryBlue",
+    "hover:text-hoverBlue"
+  );
 
   const exitButton = document.createElement("button");
 
@@ -105,15 +114,23 @@ export function onUpdateInitializing(event, user) {
 
   updateButtonContainer.append(updateButton);
 
-  detailsContainer.append(
-    exitButtonContainer,
-    inputContainer,
-    updateButtonContainer
-  );
+  detailsContainer.append(inputContainer, updateButtonContainer);
 
   avatarContainer.append(avatar);
 
-  updateContainer.append(avatarContainer, detailsContainer);
+  const mainContainer = document.createElement("div");
+  mainContainer.classList.add(
+    "w-full",
+    "h-full",
+    "flex",
+    "flex-col",
+    "items-center",
+    "xl:flex-row",
+    "gap-3"
+  );
+  mainContainer.append(avatarContainer, detailsContainer);
+
+  updateContainer.append(exitButtonContainer, mainContainer);
 
   main.append(overlay, updateContainer);
 }

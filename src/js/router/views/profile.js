@@ -3,6 +3,29 @@ import { fetchUserProfile } from "../../utilities/fetchProfile";
 import { getUserFromToken } from "../../utilities/decodeToken.js";
 import { onUpdateInitializing } from "../../ui/profile/update.js";
 import { getName } from "../../utilities/getId.js";
+import {
+  createLoader,
+  showLoader,
+  hideLoader,
+} from "../../utilities/loader.js";
+
+export default async function renderProfile() {
+  const main = document.querySelector("main");
+  const loader = createLoader();
+  const content = document.getElementById("profile-content");
+  main.appendChild(loader);
+
+  showLoader(loader);
+
+  await generateUserProfile();
+
+  content.classList.remove("hidden");
+  content.classList.add("flex");
+
+  hideLoader(loader);
+
+  main.classList.add("relative");
+}
 
 export function loggedInUserUrl(user) {
   const currentUrl = new URL(window.location.href);
@@ -62,5 +85,3 @@ async function generateUserProfile() {
     onUpdateInitializing(event, user);
   });
 }
-
-generateUserProfile();

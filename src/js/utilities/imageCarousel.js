@@ -1,7 +1,13 @@
 export function generateImageCarousel(listing, container) {
   if (Array.isArray(listing.media) && listing.media.length > 0) {
     const carousel = document.createElement("div");
-    carousel.classList.add("relative", "overflow-hidden", "w-full", "h-full");
+    carousel.classList.add(
+      "relative",
+      "overflow-hidden",
+      "w-full",
+      "h-96",
+      "xl:h-[30rem]"
+    );
 
     const track = document.createElement("div");
     track.classList.add(

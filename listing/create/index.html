@@ -24,7 +24,9 @@
     <script type="module" src="../../src/app.js"></script>
   </head>
   <body class="regular-margin regular-padding">
-    <header class="w-full flex items-center justify-between gap-10 py-5">
+    <header
+      class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
+    >
       <a href="/" class="text-4xl uppercase"
         ><img src="/images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
         <p class="hidden sm:flex">
@@ -58,7 +60,7 @@
                 ></i>
               </button>
             </form>
-            <div class="flex flex-row gap-3 text-base z-10">
+            <nav class="flex flex-row gap-3 text-base z-10">
               <a href="/listing/create/" id="menu-create" class="hidden"
                 >Sell</a
               >
@@ -67,7 +69,7 @@
               <button id="menu-logout" class="hidden hover:text-hoverBlue">
                 Logout
               </button>
-            </div>
+            </nav>
           </div>
         </div>
         <a href="" id="menu-profile" class="hidden"
@@ -82,10 +84,8 @@
       </div>
     </header>
     <main class="w-full flex flex-col gap-10">
-      <h1 class="text-4xl text-gray-500 font-tinos font-thin">
-        Make a new listing
-      </h1>
-      <form name="createListing" class="w-full flex-col">
+      <h1 class="">Make a new listing</h1>
+      <form name="createListing" class="border rounded-md p-3 w-full flex-col">
         <div class="w-full flex flex-col gap-5">
           <h2 class="text-2xl">Details</h2>
           <div class="flex flex-col gap-3 w-full md:w-1/4">

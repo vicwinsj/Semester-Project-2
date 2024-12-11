@@ -24,7 +24,9 @@
     <script type="module" src="../src/app.js"></script>
   </head>
   <body class="regular-margin regular-padding">
-    <header class="w-full flex items-center justify-between gap-10 py-5">
+    <header
+      class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
+    >
       <a href="/" class="text-4xl uppercase"
         ><img src="/images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
         <p class="hidden sm:flex">
@@ -58,7 +60,7 @@
                 ></i>
               </button>
             </form>
-            <div class="flex flex-row gap-3 text-base z-10">
+            <nav class="flex flex-row gap-3 text-base z-10">
               <a href="/listing/create/" id="menu-create" class="hidden"
                 >Sell</a
               >
@@ -67,7 +69,7 @@
               <button id="menu-logout" class="hidden hover:text-hoverBlue">
                 Logout
               </button>
-            </div>
+            </nav>
           </div>
         </div>
         <a href="" id="menu-profile" class="hidden"
@@ -81,11 +83,11 @@
         ></a>
       </div>
     </header>
-    <main class="w-full flex-col gap-10">
+    <main class="w-full">
       <div id="listing-content" class="hidden w-full flex-col gap-10">
-        <section class="w-full flex gap-10">
+        <section class="w-full flex flex-col md:flex-row gap-10">
           <div id="listing-img" class="flex-[1] h-full"></div>
-          <div class="flex-[1] self-start flex flex-col gap-3">
+          <article class="flex-[1] self-start flex flex-col gap-3">
             <h1 id="listing-title" class="flex-[1] text-black"></h1>
             <div class="w-full flex items-center gap-3">
               <p>sold by</p>
@@ -106,22 +108,24 @@
               </a>
             </div>
             <p id="listing-description"></p>
-          </div>
+          </article>
         </section>
         <section
           class="flex flex-col p-10 gap-10 rounded-xl shadow-md bg-skyBlue"
         >
-          <div class="flex justify-between">
+          <div
+            class="flex flex-col sm:flex-row gap-3 items-center sm:items-start sm:justify-between"
+          >
             <div class="flex-[1]">
               <p id="auction-expiry" class="font-semibold"></p>
             </div>
             <form
               name="placeBid"
-              class="flex-[1] flex items-center justify-end gap-3"
+              class="flex-[1] flex items-center sm:justify-end gap-3"
             >
               <div class="flex flex-col gap-3">
                 <label class="hidden" for="listing-bid">Bidding amount</label>
-                <div class="flex gap-3">
+                <div class="flex flex-col md:flex-row gap-3">
                   <input
                     class="w-full"
                     name="listing-bid"
@@ -134,35 +138,44 @@
             </form>
           </div>
           <div class="border border-textGray"></div>
-          <div class="flex items-start gap-3">
-            <div class="flex-[1] flex justify-between items-center gap-3">
-              <div>
-                <p id="listing-no-bids">
-                  Current bid:
-                  <span id="listing-current-bid" class="font-semibold"></span>
-                </p>
-              </div>
-              <a
-                id="listing-current-bidder-link"
-                href=""
-                class="flex items-center gap-3"
+          <div class="flex flex-col items-start gap-3">
+            <div class="flex flex-col gap-3 w-full flex-[1]">
+              <p id="listing-no-bids">Current bid:</p>
+              <div
+                class="w-full flex justify-between items-center lg:items-start gap-3"
               >
-                <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
-                  <img
-                    id="listing-current-bidder-avatar"
-                    src=""
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <p id="listing-current-bidder" class="font-semibold">
-                  Username
-                </p>
-              </a>
-              <p id="listing-current-bid-date"></p>
+                <p id="listing-current-bid" class="font-semibold"></p>
+                <a
+                  id="listing-current-bidder-link"
+                  href=""
+                  class="flex items-center gap-3"
+                >
+                  <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+                    <img
+                      id="listing-current-bidder-avatar"
+                      src=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p id="listing-current-bidder" class="font-semibold">
+                    Username
+                  </p>
+                </a>
+                <p id="listing-current-bid-date"></p>
+              </div>
             </div>
-            <details id="listing-bids-details" class="hidden flex-[1]">
-              <summary class="list-none cursor-pointer flex gap-3 items-center">
-                View all bids <i class="fa-solid fa-list"></i>
+            <details
+              id="listing-bids-details"
+              class="w-full group flex-col gap-3 hidden flex-[1]"
+            >
+              <summary
+                class="list-none cursor-pointer flex gap-3 my-3 items-center"
+              >
+                View all bids
+                <span
+                  class="details-icon transform transition-transform duration-300 rotate-90 group-open:-rotate-90"
+                  >></span
+                >
               </summary>
               <div
                 id="listing-bids-container"

@@ -4,11 +4,13 @@ import { listingUrl } from "./listingUrl.js";
 
 export function generateSearchResults(listings, targetContainer) {
   targetContainer.classList.add(
+    "regular-padding",
     "grid",
     "grid-cols-1",
     "md:grid-cols-2",
-    "lg:grid-cols-4",
-    "gap-6"
+    "lg:grid-cols-3",
+    "xl:grid-cols-4",
+    "gap-3"
   );
 
   listings.forEach((listing) => {
@@ -17,8 +19,7 @@ export function generateSearchResults(listings, targetContainer) {
       "flex",
       "flex-col",
       "gap-3",
-      "shrink-0",
-      "w-70",
+      "w-full",
       "cursor-pointer"
     );
     listingContainer.onclick = function () {

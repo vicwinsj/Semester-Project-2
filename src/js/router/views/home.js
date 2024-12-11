@@ -11,30 +11,21 @@ import {
 import { accessToken } from "../../api/auth/key.js";
 
 export default async function renderHome() {
-  const hottestLoader = createLoader();
-  const latestLoader = createLoader();
-  const expiringLoader = createLoader();
-
+  const main = document.querySelector("main");
+  const loader = createLoader();
+  const content = document.getElementById("home-content");
   const hottestListing = document.getElementById("hottest-listing");
   const latestListingsCarousel = document.getElementById("latest-listings");
   const expiringListingsCarousel = document.getElementById("expiring-listings");
 
-  hottestListing.appendChild(hottestLoader);
-  latestListingsCarousel.appendChild(latestLoader);
-  expiringListingsCarousel.appendChild(expiringLoader);
+  main.appendChild(loader);
 
-  showLoader(hottestLoader);
-  showLoader(latestLoader);
-  showLoader(expiringLoader);
+  showLoader(loader);
 
   await generateMostPopular(hottestListing);
 
-  hideLoader(hottestLoader);
-
   const latestListings = await getListings({ limit: 12 });
   await generateListingCarousels(latestListings, latestListingsCarousel);
-
-  hideLoader(latestLoader);
 
   const expiringListings = await getListings({
     sort: "endsAt",
@@ -43,7 +34,10 @@ export default async function renderHome() {
   });
   await generateListingCarousels(expiringListings, expiringListingsCarousel);
 
-  hideLoader(expiringLoader);
+  content.classList.remove("hidden");
+  content.classList.add("flex");
+
+  hideLoader(loader);
 }
 
 // try {

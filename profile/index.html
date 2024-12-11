@@ -24,7 +24,9 @@
     <script type="module" src="../src/app.js"></script>
   </head>
   <body class="regular-margin regular-padding">
-    <header class="w-full flex items-center justify-between gap-10 py-5">
+    <header
+      class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
+    >
       <a href="/" class="text-4xl uppercase"
         ><img src="/images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
         <p class="hidden sm:flex">
@@ -58,7 +60,7 @@
                 ></i>
               </button>
             </form>
-            <div class="flex flex-row gap-3 text-base z-10">
+            <nav class="flex flex-row gap-3 text-base z-10">
               <a href="/listing/create/" id="menu-create" class="hidden"
                 >Sell</a
               >
@@ -67,7 +69,7 @@
               <button id="menu-logout" class="hidden hover:text-hoverBlue">
                 Logout
               </button>
-            </div>
+            </nav>
           </div>
         </div>
         <a href="" id="menu-profile" class="hidden"
@@ -81,31 +83,24 @@
         ></a>
       </div>
     </header>
-    <main class="relative w-full flex flex-col gap-20">
-      <h1 class="text-5xl font-normal">
-        Profile details of
-        <span id="profile-greeting" class="font-semibold"></span>
-      </h1>
-      <section
-        id="profile-banner"
-        class="w-full h-full bg-cover bg-center flex flex-col text-[32px] rounded-xl shadow-md p-10 gap-10"
-      >
-        <h2 class="text-3xl bg-skyBlue bg-opacity-70 p-3 w-fit">Overview</h2>
-        <div class="w-full flex flex-col md:flex-row gap-10">
-          <div class="flex-[1] flex items-start">
-            <div class="flex items-center gap-10">
-              <div class="text-xl text-black p-3 bg-skyBlue bg-opacity-70">
-                <p class="font-semibold">
-                  Username:
-                  <span id="profile-username" class="font-normal"></span>
-                </p>
-                <p class="font-semibold">
-                  Credits:
-                  <span id="profile-credits" class="font-normal"></span>
-                </p>
-              </div>
+    <main class="w-full h-full">
+      <div id="profile-content" class="hidden w-full flex-col gap-3">
+        <h1 class="">
+          Profile details of
+          <span
+            id="profile-greeting"
+            class="font-tinos italic font-semibold text-primaryBlue"
+          ></span>
+        </h1>
+        <section
+          class="relative w-full h-full flex flex-col text-[32px] bg-skyBlue rounded-xl shadow-md gap-10"
+        >
+          <div id="profile-banner" class="w-full h-72 bg-cover bg-center">
+            <div
+              class="absolute xl:left-1/3 top-32 left-1/2 -translate-x-1/2 xl:-translate-x-1/3"
+            >
               <div
-                class="relative text-center w-32 h-32 bg-gray-300 rounded-full overflow-hidden"
+                class="relative text-center w-72 h-72 bg-gray-300 rounded-full overflow-hidden border-4 border-skyBlue"
               >
                 <div class="w-full h-full bg-gray-300">
                   <img
@@ -125,11 +120,27 @@
               </div>
             </div>
           </div>
-          <div class="flex-[2]">
-            <p id="profile-bio" class="text-xl p-3 bg-opacity-70"></p>
+          <div
+            class="w-full h-full flex justify-between flex-col xl:flex-row pt-24 md:p-10 gap-10"
+          >
+            <div
+              class="flex-[1] text-xl text-black p-3 bg-skyBlue bg-opacity-70"
+            >
+              <p class="font-semibold">
+                Username:
+                <span id="profile-username" class="font-normal"></span>
+              </p>
+              <p class="font-semibold">
+                Credits:
+                <span id="profile-credits" class="font-normal"></span>
+              </p>
+            </div>
+            <div class="flex-[1]">
+              <p id="profile-bio" class="text-xl p-3 bg-opacity-70"></p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   </body>
 </html>

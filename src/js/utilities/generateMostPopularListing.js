@@ -50,11 +50,10 @@ export async function generateMostPopular(targetContainer) {
   };
 
   const countdown = document.createElement("p");
-  countdown.classList.add("font-bold");
-  countdown.innerHTML = calculateTimeRemaining(listing.endsAt);
+  countdown.innerText = calculateTimeRemaining(listing.endsAt);
 
   const description = document.createElement("p");
-  description.innerHTML = listing.description;
+  description.innerText = listing.description;
 
   const bidContainer = document.createElement("div");
   bidContainer.classList.add("flex", "flex-col", "gap-3");
@@ -63,11 +62,17 @@ export async function generateMostPopular(targetContainer) {
   bids.classList.add("flex", "items-center", "justify-between");
 
   const numberOfBids = document.createElement("p");
-  numberOfBids.innerHTML = listing._count.bids + " bids";
+  numberOfBids.innerText = listing._count.bids + " bids";
 
   const currentBid = document.createElement("p");
 
-  currentBid.innerHTML = "Current bid: " + findCurrentBid(listing).amount;
+  const currentBidValue = document.createElement("span");
+  currentBidValue.classList.add("font-semibold");
+
+  currentBid.innerText = "Current bid: ";
+  currentBidValue.innerText = findCurrentBid(listing).amount;
+
+  currentBid.appendChild(currentBidValue);
 
   bids.append(numberOfBids, currentBid);
 
@@ -104,7 +109,7 @@ export async function generateMostPopular(targetContainer) {
   });
 
   const button = document.createElement("button");
-  button.innerHTML = "Make bid";
+  button.innerText = "Make bid";
   button.classList.add("btn", "min-w-32");
   button.type = "submit";
 

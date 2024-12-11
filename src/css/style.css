@@ -7,22 +7,30 @@
 
 @layer base {
   html {
-    @apply relative flex flex-col items-center;
+    @apply flex flex-col items-center;
   }
 
   body {
-    @apply flex flex-col items-center gap-10 my-10 text-primaryBlue font-manrope;
+    @apply flex flex-col items-center gap-10 my-10 text-black font-manrope;
   }
 
   input,
   textarea {
-    @apply bg-inputBg py-[10px] px-[20px] text-black resize-none outline-none;
+    @apply bg-inputBg py-[10px] px-[20px] resize-none outline-none;
   }
 
   h1,
   h2,
   h3 {
-    @apply text-5xl font-semibold;
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl;
   }
 
   form {
@@ -30,7 +38,7 @@
   }
 
   a {
-    @apply hover:text-hoverBlue;
+    @apply text-primaryBlue hover:text-hoverBlue;
   }
 }
 
