@@ -1,6 +1,5 @@
 import { API_AUCTION_LISTINGS } from "../api/constants.js";
 import { doFetch } from "./doFetch.js";
-import { getId } from "./getFromUrl.js";
 
 export async function getListing({ id, _seller = true, _bids = true }) {
   const url = new URL(`${API_AUCTION_LISTINGS}/${id}`);
