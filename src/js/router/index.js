@@ -1,7 +1,15 @@
 export default async function router(pathname = window.location.pathname) {
-  const basePath = "/Semester-Project-2";
+  const isGitHubPages = location.hostname.includes("github.io");
+  const basePath = isGitHubPages ? "/Semester-Project-2" : "/";
 
-  let cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
+  console.log("Original Pathname:", pathname);
+  console.log("Base Path:", basePath);
+
+  let cleanPath = pathname.startsWith(basePath)
+    ? pathname.slice(basePath.length).replace(/\/index\.html$/, "/")
+    : pathname.replace(/\/index\.html$/, "/");
+
+  console.log("Clean Path:", cleanPath);
 
   let view;
 
