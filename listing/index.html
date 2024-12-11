@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HammerPrice</title>
+    <script type="module" crossorigin src="/assets/listingEdit-BDCl9NEo.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/listingEdit-DXl-Et-8.css">
+  </head>
+  <body class="regular-margin regular-padding">
+    <header
+      class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
+    >
+      <a href="/" class="text-4xl uppercase"
+        ><img src="/images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
+        <p class="hidden sm:flex">
+          <span class="font-semibold">Hammer</span
+          ><span class="font-normal">Price</span>
+        </p></a
+      >
+      <div class="flex w-full gap-3 items-center justify-end text-xl">
+        <div class="flex justify-end w-full">
+          <button id="burger" class="xl:hidden">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div
+            id="menu"
+            class="w-screen absolute left-0 top-28 hidden xl:flex flex-col xl:flex-row bg-white shadow-md p-3 xl:p-0 xl:shadow-none xl:static xl:w-full items-center gap-10 z-20"
+          >
+            <form
+              name="search"
+              class="relative flex w-full flex-[1] flex-row items-center justify-center gap-3 text-base"
+            >
+              <label for="search" class="hidden">Search</label>
+              <input
+                type="text"
+                name="search"
+                class="w-full"
+                placeholder="Search through listings ..."
+              />
+              <button id="searchButton" class="absolute right-3" type="submit">
+                <i
+                  class="fa-solid fa-magnifying-glass size-7 hover:text-hoverBlue"
+                ></i>
+              </button>
+            </form>
+            <nav class="flex flex-row gap-3 text-base z-10">
+              <a href="/listing/create/" id="menu-create" class="hidden"
+                >Sell</a
+              >
+              <a href="/auth/register/" id="menu-register" class="">Register</a>
+              <a href="/auth/login/" id="menu-login" class="">Login</a>
+              <button id="menu-logout" class="hidden hover:text-hoverBlue">
+                Logout
+              </button>
+            </nav>
+          </div>
+        </div>
+        <a href="" id="menu-profile" class="hidden"
+          ><div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+            <img
+              id="menu-avatar"
+              src=""
+              alt=""
+              class="w-full h-full object-cover"
+            /></div
+        ></a>
+      </div>
+    </header>
+    <main class="w-full">
+      <div id="listing-content" class="hidden w-full flex-col gap-10">
+        <section class="w-full flex flex-col md:flex-row gap-10">
+          <div id="listing-img" class="flex-[1] h-full"></div>
+          <article class="flex-[1] self-start flex flex-col gap-3">
+            <h1 id="listing-title" class="flex-[1] text-black"></h1>
+            <div class="w-full flex items-center gap-3">
+              <p>sold by</p>
+              <a
+                id="listing-seller-link"
+                href=""
+                class="flex items-center gap-3"
+              >
+                <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    id="listing-seller-avatar"
+                    src=""
+                    alt=""
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p id="listing-seller" class="font-semibold"></p>
+              </a>
+            </div>
+            <p id="listing-description"></p>
+          </article>
+        </section>
+        <section
+          class="flex flex-col p-10 gap-10 rounded-xl shadow-md bg-skyBlue"
+        >
+          <div
+            class="flex flex-col sm:flex-row gap-3 items-center sm:items-start sm:justify-between"
+          >
+            <div class="flex-[1]">
+              <p id="auction-expiry" class="font-semibold"></p>
+            </div>
+            <form
+              name="placeBid"
+              class="flex-[1] flex items-center sm:justify-end gap-3"
+            >
+              <div class="flex flex-col gap-3">
+                <label class="hidden" for="listing-bid">Bidding amount</label>
+                <div class="flex flex-col md:flex-row gap-3">
+                  <input
+                    class="w-full"
+                    name="listing-bid"
+                    type="number"
+                    placeholder="Enter amount"
+                  />
+                  <button type="submit" class="btn min-w-32">Place bid</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="border border-textGray"></div>
+          <div class="flex flex-col items-start gap-3">
+            <div class="flex flex-col gap-3 w-full flex-[1]">
+              <p id="listing-no-bids">Current bid:</p>
+              <div
+                class="w-full flex justify-between items-center lg:items-start gap-3"
+              >
+                <p id="listing-current-bid" class="font-semibold"></p>
+                <a
+                  id="listing-current-bidder-link"
+                  href=""
+                  class="flex items-center gap-3"
+                >
+                  <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+                    <img
+                      id="listing-current-bidder-avatar"
+                      src=""
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p id="listing-current-bidder" class="font-semibold">
+                    Username
+                  </p>
+                </a>
+                <p id="listing-current-bid-date"></p>
+              </div>
+            </div>
+            <details
+              id="listing-bids-details"
+              class="w-full group flex-col gap-3 hidden flex-[1]"
+            >
+              <summary
+                class="list-none cursor-pointer flex gap-3 my-3 items-center"
+              >
+                View all bids
+                <span
+                  class="details-icon transform transition-transform duration-300 rotate-90 group-open:-rotate-90"
+                  >></span
+                >
+              </summary>
+              <div
+                id="listing-bids-container"
+                class="flex flex-col-reverse gap-3"
+              ></div>
+            </details>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+function n(r){const s=document.querySelectorAll(".auth-error"),o=r.errors&&Array.isArray(r.errors)?r.errors.map(e=>e.message).join("<br>"):r.error&&r.error.message?r.error.message:"An unknown error occurred.";s.forEach(e=>{e.innerHTML=o}),console.error("Auth error:",o)}export{n as a};

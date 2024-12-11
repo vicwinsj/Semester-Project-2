@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Listing | HammerPrice</title>
+    <script type="module" crossorigin src="/assets/listingEdit-BDCl9NEo.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/listingEdit-DXl-Et-8.css">
+  </head>
+  <body class="regular-margin regular-padding">
+    <header
+      class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
+    >
+      <a href="/" class="text-4xl uppercase"
+        ><img src="/images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
+        <p class="hidden sm:flex">
+          <span class="font-semibold">Hammer</span
+          ><span class="font-normal">Price</span>
+        </p></a
+      >
+      <div class="flex w-full gap-3 items-center justify-end text-xl">
+        <div class="flex justify-end w-full">
+          <button id="burger" class="xl:hidden">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div
+            id="menu"
+            class="w-screen absolute left-0 top-28 hidden xl:flex flex-col xl:flex-row bg-white shadow-md p-3 xl:p-0 xl:shadow-none xl:static xl:w-full items-center gap-10 z-20"
+          >
+            <form
+              name="search"
+              class="relative flex w-full flex-[1] flex-row items-center justify-center gap-3 text-base"
+            >
+              <label for="search" class="hidden">Search</label>
+              <input
+                type="text"
+                name="search"
+                class="w-full"
+                placeholder="Search through listings ..."
+              />
+              <button id="searchButton" class="absolute right-3" type="submit">
+                <i
+                  class="fa-solid fa-magnifying-glass size-7 hover:text-hoverBlue"
+                ></i>
+              </button>
+            </form>
+            <nav class="flex flex-row gap-3 text-base z-10">
+              <a href="/listing/create/" id="menu-create" class="hidden"
+                >Sell</a
+              >
+              <a href="/auth/register/" id="menu-register" class="">Register</a>
+              <a href="/auth/login/" id="menu-login" class="">Login</a>
+              <button id="menu-logout" class="hidden hover:text-hoverBlue">
+                Logout
+              </button>
+            </nav>
+          </div>
+        </div>
+        <a href="" id="menu-profile" class="hidden"
+          ><div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+            <img
+              id="menu-avatar"
+              src=""
+              alt=""
+              class="w-full h-full object-cover"
+            /></div
+        ></a>
+      </div>
+    </header>
+    <main class="w-full flex flex-col gap-10">
+      <h1 class="">Make a new listing</h1>
+      <form name="createListing" class="border rounded-md p-3 w-full flex-col">
+        <div class="w-full flex flex-col gap-5">
+          <h2 class="text-2xl">Details</h2>
+          <div class="flex flex-col gap-3 w-full md:w-1/4">
+            <label class="" for="end-date">End date</label>
+            <input
+              id="create-end-date"
+              name="end-date"
+              type="datetime-local"
+              class="w-full cursor-pointer"
+              required
+            />
+          </div>
+          <div class="flex flex-col gap-3 w-full md:w-1/2">
+            <label class="" for="title">Title</label>
+            <input
+              id="create-title"
+              class="w-full"
+              name="title"
+              type="text"
+              placeholder="Title"
+              required
+            />
+          </div>
+          <div class="flex flex-col gap-3 w-full">
+            <label class="" for="description">Description</label>
+            <textarea
+              id="create-description"
+              class="w-full h-72"
+              name="description"
+              placeholder="Description"
+            ></textarea>
+          </div>
+        </div>
+        <div class="w-full flex flex-col gap-5">
+          <h2 class="text-2xl">Images</h2>
+          <button id="create-img-btn" class="self-start alt-btn">
+            Add image <i class="fa-regular fa-image"></i>
+          </button>
+          <div id="create-img-urls" class="w-full flex flex-col"></div>
+        </div>
+        <div class="w-full flex flex-col gap-5">
+          <h2 class="text-2xl">Tags</h2>
+          <button id="create-tag-btn" class="self-start alt-btn">
+            Add tag <i class="fa-solid fa-hashtag"></i>
+          </button>
+          <div id="create-tags" class="w-full flex flex-col"></div>
+        </div>
+        <button class="btn" type="submit">Auction item</button>
+      </form>
+    </main>
+  </body>
+</html>
