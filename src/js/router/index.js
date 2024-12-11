@@ -14,8 +14,9 @@ export default async function router(pathname = window.location.pathname) {
   let view;
 
   switch (cleanPath) {
-    case "/":
+    case "Semester-Project-2/":
       view = await import("./views/home.js");
+      console.log(cleanPath);
       break;
     // case "/auth/":
     //   view = await import("./views/auth.js");
