@@ -17,7 +17,7 @@ fontAwesomeScript.src = "https://kit.fontawesome.com/7d99a0a315.js";
 fontAwesomeScript.crossOrigin = "anonymous";
 document.head.appendChild(fontAwesomeScript);
 
-const basePath = "/semester-project-2";
+const basePath = "/Semester-Project-2";
 document.querySelectorAll("a[href^='/']").forEach((link) => {
   link.href = basePath + link.getAttribute("href");
 });
