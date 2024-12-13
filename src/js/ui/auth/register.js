@@ -13,6 +13,7 @@ export async function onRegister(event) {
     const isRegistered = await register(registerData);
 
     if (isRegistered) {
+      alert("Successfully registered!");
       window.location.href = `${GH_BASE}`;
     }
   } catch (error) {
