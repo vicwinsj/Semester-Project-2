@@ -3,12 +3,10 @@ import { BASE_URL } from "../api/constants.js";
 export default async function router(pathname = window.location.pathname) {
   const basePath = `${BASE_URL}`;
 
-  console.log(basePath);
-
   let cleanPath;
 
   if (basePath.length > 1) {
-    cleanPath = pathname.slice(basePath.length).replace(/\/index\.html$/, "/");
+    cleanPath = pathname.replace(basePath, "/").replace(/\/index\.html$/, "/");
   } else {
     cleanPath = pathname.replace(/\/index\.html$/, "/");
   }
