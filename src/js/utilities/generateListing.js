@@ -89,7 +89,9 @@ export async function generateListingContent(listing) {
     bidsDetails.classList.remove("hidden");
     bidsDetails.classList.add("flex");
 
-    listing.bids.forEach((bid) => {
+    const bidsSortedByAmount = listing.bids.sort((a, b) => b.amount - a.amount);
+
+    bidsSortedByAmount.forEach((bid) => {
       const bidContainer = document.createElement("div");
       bidContainer.classList.add("flex", "items-center", "justify-between");
 
@@ -136,7 +138,6 @@ export async function generateListingContent(listing) {
       bidDate.innerText = creationDate(bid);
 
       bidContainer.append(bidAmount, bidderContainer, bidDate);
-
       bidsContainer.append(bidContainer);
     });
   }
