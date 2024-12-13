@@ -1,5 +1,5 @@
-import { GH_BASE } from "../../api/constants.js";
 import { register } from "../../api/auth/register.js";
+import { login } from "./login.js";
 
 export async function onRegister(event) {
   event.preventDefault();
@@ -14,7 +14,7 @@ export async function onRegister(event) {
 
     if (isRegistered) {
       alert("Successfully registered!");
-      window.location.href = `${GH_BASE}`;
+      await login();
     }
   } catch (error) {
     console.error("Error in onRegister:", error.message);
