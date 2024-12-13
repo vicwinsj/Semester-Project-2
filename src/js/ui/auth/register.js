@@ -1,5 +1,5 @@
 import { register } from "../../api/auth/register.js";
-import { login } from "./login.js";
+import { onLogin } from "./login.js";
 
 export async function onRegister(event) {
   event.preventDefault();
@@ -14,7 +14,7 @@ export async function onRegister(event) {
 
     if (isRegistered) {
       alert("Successfully registered!");
-      await login();
+      await onLogin();
     }
   } catch (error) {
     console.error("Error in onRegister:", error.message);
