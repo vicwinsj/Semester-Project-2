@@ -1,0 +1,1 @@
+function n(r){const e=document.getElementById("error-message"),o=r.errors&&Array.isArray(r.errors)?r.errors.map(s=>s.message).join("<br>"):r.error&&r.error.message?r.error.message:"An unknown error occurred.";e.innerText=o+"!",console.error("Error:",e)}export{n as g};

@@ -21,8 +21,8 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HammerPrice</title>
-    <script type="module" crossorigin src="/Semester-Project-2/assets/app-bgryLbGh.js"></script>
-    <link rel="stylesheet" crossorigin href="/Semester-Project-2/assets/app-VCTjMYgD.css">
+    <script type="module" crossorigin src="/Semester-Project-2/assets/app-BxwILGkO.js"></script>
+    <link rel="stylesheet" crossorigin href="/Semester-Project-2/assets/app-sd91Wj8o.css">
   </head>
   <body class="regular-margin regular-padding">
     <header
@@ -90,10 +90,10 @@
       <div id="listing-content" class="hidden w-full flex-col gap-10">
         <section class="w-full flex flex-col md:flex-row gap-10">
           <div id="listing-img" class="flex-[1] h-full"></div>
-          <article class="flex-[1] self-start flex flex-col gap-3">
-            <h1 id="listing-title" class="flex-[1] text-black"></h1>
+          <article class="flex-[1] w-full self-start flex flex-col gap-3">
+            <h1 id="listing-title" class="flex-[1] break-words"></h1>
             <div class="w-full flex items-center gap-3">
-              <p>sold by</p>
+              <p>listed by</p>
               <a
                 id="listing-seller-link"
                 href=""
@@ -110,7 +110,7 @@
                 <p id="listing-seller" class="font-semibold"></p>
               </a>
             </div>
-            <p id="listing-description"></p>
+            <p id="listing-description" class="w-full break-words"></p>
           </article>
         </section>
         <section
@@ -130,13 +130,14 @@
                 <label class="hidden" for="listing-bid">Bidding amount</label>
                 <div class="flex flex-col md:flex-row gap-3">
                   <input
-                    class="w-full"
+                    class="error-field w-full"
                     name="listing-bid"
                     type="number"
                     placeholder="Enter amount"
                   />
                   <button type="submit" class="btn min-w-32">Place bid</button>
                 </div>
+                <p id="error-message"></p>
               </div>
             </form>
           </div>

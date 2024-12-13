@@ -21,8 +21,8 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HammerPrice</title>
-    <script type="module" crossorigin src="/Semester-Project-2/assets/app-bgryLbGh.js"></script>
-    <link rel="stylesheet" crossorigin href="/Semester-Project-2/assets/app-VCTjMYgD.css">
+    <script type="module" crossorigin src="/Semester-Project-2/assets/app-BxwILGkO.js"></script>
+    <link rel="stylesheet" crossorigin href="/Semester-Project-2/assets/app-sd91Wj8o.css">
   </head>
   <body class="regular-margin regular-padding bg-skyBlue">
     <header class="w-full flex items-center justify-between py-5">
@@ -47,7 +47,7 @@
           <div class="w-full flex flex-col gap-3">
             <label for="email" class="">Email</label>
             <input
-              class="px-3 w-full"
+              class="error-field px-3 w-full"
               id="login-email"
               type="email"
               name="email"
@@ -58,7 +58,7 @@
           <div class="w-full flex flex-col gap-3">
             <label for="password" class="">Password</label>
             <input
-              class="w-full px-3"
+              class="error-field w-full px-3"
               type="password"
               name="password"
               id="login-password"
@@ -69,7 +69,7 @@
         <div class="w-full flex justify-end items-center">
           <button class="btn" type="submit" id="login-button">Login</button>
         </div>
-        <p class="auth-error text-salmonRed"></p>
+        <p id="error-message"></p>
       </form>
     </main>
   </body>
