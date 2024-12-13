@@ -1,7 +1,7 @@
 const isGitHubPages = location.hostname.includes("github.io");
 
 export const BASE_URL = isGitHubPages
-  ? "/Semester-Project-2"
+  ? "/Semester-Project-2/"
   : window.location.origin;
 
 export const API_KEY = "efffe6d5-fb4b-4a2c-a744-5dd884d1924e";
