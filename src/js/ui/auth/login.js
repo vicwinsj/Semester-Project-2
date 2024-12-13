@@ -3,12 +3,13 @@ import { login } from "../../api/auth/login.js";
 
 export async function onLogin(event) {
   event.preventDefault();
-  const loginData = {
-    email: document.getElementById("login-email").value,
-    password: document.getElementById("login-password").value,
-  };
+  const email = document.getElementById("login-email");
+  const password = document.getElementById("login-password");
 
-  const errorMessage = document.getElementById("login-error");
+  const loginData = {
+    email: email.value,
+    password: password.value,
+  };
 
   try {
     const isLoggedIn = await login(loginData);
@@ -17,6 +18,8 @@ export async function onLogin(event) {
       window.location.href = `${BASE_URL}`;
     }
   } catch (error) {
-    errorMessage.innerText = `${error.message}`;
+    email.classList.add("border", "border-salmonRed", "bg-red-50");
+    password.classList.add("border", "border-salmonRed", "bg-red-50");
+    console.error = `${error.message}`;
   }
 }

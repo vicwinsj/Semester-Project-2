@@ -1,6 +1,6 @@
 import { API_AUTH_LOGIN } from "../constants.js";
 import { getKey } from "./key.js";
-import { authError } from "./error.js";
+import { generateErrorMessage } from "../../utilities/errorMessage.js";
 import { doFetch } from "../../utilities/doFetch.js";
 
 export async function login({ email, password }) {
@@ -15,7 +15,7 @@ export async function login({ email, password }) {
     const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
     console.error("Login error details:", errorDetails);
 
-    authError(errorDetails);
+    generateErrorMessage(errorDetails);
     throw error;
   }
 }

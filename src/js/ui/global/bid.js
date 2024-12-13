@@ -1,5 +1,6 @@
 import { API_AUCTION_LISTINGS } from "../../api/constants";
 import { doFetch } from "../../utilities/doFetch";
+import { generateErrorMessage } from "../../utilities/errorMessage";
 
 export async function placeBid(event, id, { _seller, _bids, amount } = {}) {
   event.preventDefault();
@@ -22,6 +23,8 @@ export async function placeBid(event, id, { _seller, _bids, amount } = {}) {
       location.reload();
     }
   } catch (error) {
+    const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
+    generateErrorMessage(errorDetails);
     console.error("There was a problem with the fetch operation:", error);
   }
 }

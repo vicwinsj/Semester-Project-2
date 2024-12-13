@@ -14,7 +14,6 @@ export async function generateListingContent(listing) {
   generateImageCarousel(listing, imgContainer);
 
   const sellerLink = document.getElementById("listing-seller-link");
-  sellerLink.href = `${BASE_URL}/profile/index.html?name=${listing.seller.name}`;
 
   if (accessToken) {
     sellerLink.href = `${BASE_URL}profile/index.html?name=${listing.seller.name}`;

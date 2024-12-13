@@ -1,5 +1,5 @@
 import { API_AUTH_REGISTER } from "../constants.js";
-import { authError } from "./error.js";
+import { generateErrorMessage } from "../../utilities/errorMessage.js";
 import { doFetch } from "../../utilities/doFetch.js";
 
 export async function register({ name, email, password, bio, banner, avatar }) {
@@ -14,7 +14,7 @@ export async function register({ name, email, password, bio, banner, avatar }) {
     const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
     console.error("Registration error details:", errorDetails);
 
-    authError(errorDetails);
+    generateErrorMessage(errorDetails);
     throw error;
   }
 }

@@ -5,14 +5,14 @@ import { login } from "../../api/auth/login.js";
 export async function onRegister(event) {
   event.preventDefault();
 
-  const name = document.getElementById("register-name").value;
-  const email = document.getElementById("register-email").value;
-  const password = document.getElementById("register-password").value;
+  const name = document.getElementById("register-name");
+  const email = document.getElementById("register-email");
+  const password = document.getElementById("register-password");
 
   const registerData = {
-    name: name,
-    email: email,
-    password: password,
+    name: name.value,
+    email: email.value,
+    password: password.value,
   };
 
   try {
@@ -30,6 +30,9 @@ export async function onRegister(event) {
       }
     }
   } catch (error) {
+    name.classList.add("border", "border-salmonRed", "bg-red-50");
+    email.classList.add("border", "border-salmonRed", "bg-red-50");
+    password.classList.add("border", "border-salmonRed", "bg-red-50");
     console.error("Error in onRegister:", error.message);
   }
 }
