@@ -1,6 +1,6 @@
 import { getListingWithMostBids } from "./getMostPopularListing.js";
 import { findCurrentBid } from "./currentBid.js";
-import { listingUrl } from "./listingUrl.js";
+import { listingUrl } from "./generateUrls.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { generateImageCarousel } from "./imageCarousel.js";
 import { placeBid } from "../ui/global/bid.js";

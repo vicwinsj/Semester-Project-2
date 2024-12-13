@@ -1,16 +1,26 @@
-export default async function router(pathname = window.location.pathname) {
-  const isGitHubPages = location.hostname.includes("github.io");
-  const basePath = isGitHubPages ? "/Semester-Project-2" : "/";
+import { BASE_URL } from "../api/constants.js";
 
-  let cleanPath = pathname.startsWith(basePath)
-    ? pathname.slice(basePath.length).replace(/\/index\.html$/, "/")
-    : pathname.replace(/\/index\.html$/, "/");
+export default async function router(pathname = window.location.pathname) {
+  const basePath = `${BASE_URL}`;
+
+  console.log(basePath);
+
+  let cleanPath;
+
+  if (basePath.length > 1) {
+    cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
+  } else {
+    cleanPath = pathname.replace(/\/index\.html$/, "/");
+  }
+
+  console.log(cleanPath);
 
   let view;
 
   switch (cleanPath) {
     case "/":
       view = await import("./views/home.js");
+      console.log(cleanPath);
       break;
     case "/auth/login/":
       view = await import("./views/login.js");

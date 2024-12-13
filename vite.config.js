@@ -1,11 +1,8 @@
-import { resolve } from "path";
 import { defineConfig } from "vite";
-
-const isVercel = process.env.VERCEL === "1";
 
 export default defineConfig({
   appType: "mpa",
-  base: isVercel ? "/" : "/Semester-Project-2/",
+  base: process.env.VITE_BASE_URL,
   css: {
     devSourcemap: true,
   },

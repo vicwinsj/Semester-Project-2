@@ -1,5 +1,5 @@
 import { accessToken } from "../api/auth/key.js";
-import { GH_BASE } from "../api/constants.js";
+import { BASE_URL } from "../api/constants.js";
 import { generateImageCarousel } from "./imageCarousel.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";
@@ -14,10 +14,10 @@ export async function generateListingContent(listing) {
   generateImageCarousel(listing, imgContainer);
 
   const sellerLink = document.getElementById("listing-seller-link");
-  sellerLink.href = `${GH_BASE}/profile/index.html?name=${listing.seller.name}`;
+  sellerLink.href = `${BASE_URL}/profile/index.html?name=${listing.seller.name}`;
 
   if (accessToken) {
-    sellerLink.href = `${GH_BASE}/profile/index.html?name=${listing.seller.name}`;
+    sellerLink.href = `${BASE_URL}/profile/index.html?name=${listing.seller.name}`;
   } else {
     sellerLink.href = "#";
     sellerLink.addEventListener("click", (event) => {
@@ -67,7 +67,7 @@ export async function generateListingContent(listing) {
       currentBid.bidder.avatar.alt || currentBid.bidder.avatar.url;
 
     if (accessToken) {
-      currentBidderLink.href = `${GH_BASE}/profile/index.html?name=${currentBid.bidder.name}`;
+      currentBidderLink.href = `${BASE_URL}/profile/index.html?name=${currentBid.bidder.name}`;
     } else {
       currentBidderLink.href = "#";
       currentBidderLink.addEventListener("click", (event) => {
@@ -101,7 +101,7 @@ export async function generateListingContent(listing) {
       bidderContainer.classList.add("flex", "items-center", "gap-3");
 
       if (accessToken) {
-        bidderContainer.href = `${GH_BASE}/profile/index.html?name=${bid.bidder.name}`;
+        bidderContainer.href = `${BASE_URL}/profile/index.html?name=${bid.bidder.name}`;
       } else {
         bidderContainer.href = "#";
         bidderContainer.addEventListener("click", (event) => {

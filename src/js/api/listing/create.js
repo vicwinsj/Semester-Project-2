@@ -1,4 +1,4 @@
-import { GH_BASE, API_AUCTION_LISTINGS } from "../constants.js";
+import { BASE_URL, API_AUCTION_LISTINGS } from "../constants.js";
 import { doFetch } from "../../utilities/doFetch.js";
 
 export async function createListing({
@@ -23,7 +23,7 @@ export async function createListing({
     });
 
     if (response) {
-      window.location.href = `${GH_BASE}`;
+      window.location.href = `${BASE_URL}`;
     }
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);

@@ -1,4 +1,4 @@
-export const GH_BASE = "/Semester-Project-2";
+export const BASE_URL = import.meta.env.VITE_BASE_URL || window.location.origin;
 
 export const API_KEY = "efffe6d5-fb4b-4a2c-a744-5dd884d1924e";
 

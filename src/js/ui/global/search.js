@@ -1,4 +1,4 @@
-import { GH_BASE } from "../../api/constants.js";
+import { BASE_URL } from "../../api/constants.js";
 import { createLoader } from "../../utilities/loader.js";
 import { getListings } from "../../utilities/fetchListings.js";
 import { generateSearchResults } from "../../utilities/generateSearchResults.js";
@@ -17,7 +17,7 @@ export async function search() {
       return;
     }
 
-    const newUrl = `${GH_BASE}/?q=${encodeURIComponent(searchKeyword)}`;
+    const newUrl = `${BASE_URL}?q=${encodeURIComponent(searchKeyword)}`;
     window.history.replaceState({}, document.title, newUrl);
 
     searchContainer.innerHTML = "";

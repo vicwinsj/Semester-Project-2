@@ -1,4 +1,4 @@
-import { GH_BASE } from "../../api/constants.js";
+import { BASE_URL } from "../../api/constants.js";
 import { login } from "../../api/auth/login.js";
 
 export async function onLogin(event) {
@@ -14,7 +14,7 @@ export async function onLogin(event) {
     const isLoggedIn = await login(loginData);
 
     if (isLoggedIn) {
-      window.location.href = `${GH_BASE}`;
+      window.location.href = `${BASE_URL}`;
     }
   } catch (error) {
     errorMessage.innerText = `${error.message}`;

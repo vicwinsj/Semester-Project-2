@@ -1,6 +1,6 @@
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";
-import { listingUrl } from "./listingUrl.js";
+import { listingUrl } from "./generateUrls.js";
 
 export function generateSearchResults(listings, targetContainer) {
   targetContainer.classList.add(

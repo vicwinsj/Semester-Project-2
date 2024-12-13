@@ -1,4 +1,4 @@
-import { GH_BASE } from "../../api/constants.js";
+import { BASE_URL } from "../../api/constants.js";
 import { register } from "../../api/auth/register.js";
 import { login } from "../../api/auth/login.js";
 
@@ -22,11 +22,11 @@ export async function onRegister(event) {
       alert("Successfully registered!");
       try {
         await login({ email, password });
-        window.location.href = `${GH_BASE}`;
+        window.location.href = `${BASE_URL}`;
       } catch (loginError) {
         alert("Login failed. Please try logging in manually.");
         console.error("Login error after registration:", loginError.message);
-        window.location.href = `${GH_BASE}/auth/login`;
+        window.location.href = `${BASE_URL}/auth/login`;
       }
     }
   } catch (error) {
