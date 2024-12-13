@@ -140,14 +140,4 @@ export async function generateListingContent(listing) {
       bidsContainer.append(bidContainer);
     });
   }
-
-  // getLoggedInUser();
-
-  // if (accessToken) {
-  //   const editButton = document.getElementById("edit-btn");
-  //   editButton.addEventListener("click", function (event) {
-  //     event.preventDefault();
-  //     window.location.href = editPostUrl(post);
-  //   });
-  // }
 }

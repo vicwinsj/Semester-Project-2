@@ -1,12 +1,18 @@
+import { GH_BASE } from "../../api/constants.js";
 import { register } from "../../api/auth/register.js";
-import { onLogin } from "./login.js";
+import { login } from "../../api/auth/login.js";
 
 export async function onRegister(event) {
   event.preventDefault();
+
+  const name = document.getElementById("register-name").value;
+  const email = document.getElementById("register-email").value;
+  const password = document.getElementById("register-password").value;
+
   const registerData = {
-    name: document.getElementById("register-name").value,
-    email: document.getElementById("register-email").value,
-    password: document.getElementById("register-password").value,
+    name: name,
+    email: email,
+    password: password,
   };
 
   try {
@@ -14,7 +20,9 @@ export async function onRegister(event) {
 
     if (isRegistered) {
       alert("Successfully registered!");
-      await onLogin();
+
+      await login(email, password);
+      window.location.href = `${GH_BASE}`;
     }
   } catch (error) {
     console.error("Error in onRegister:", error.message);
