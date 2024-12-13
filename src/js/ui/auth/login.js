@@ -14,7 +14,6 @@ export async function onLogin(event) {
     const isLoggedIn = await login(loginData);
 
     if (isLoggedIn) {
-      console.log("success login");
       window.location.href = `${GH_BASE}`;
     }
   } catch (error) {

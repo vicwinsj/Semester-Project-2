@@ -8,15 +8,12 @@ export async function updateProfile(username, { avatar, banner, bio }) {
     bio: bio,
   };
 
-  console.log("Payload being sent to API:", body);
-
   try {
     const response = await doFetch(`${API_AUCTION_PROFILES}/${username}`, {
       method: "PUT",
       body: body,
     });
     if (response) {
-      console.log(response);
       alert("Profile updated successfully!");
       location.reload();
     }

@@ -7,6 +7,5 @@ export async function getLoggedInUser() {
     headers: headers(),
   });
   const user = await response.json();
-  console.log(user);
   return user;
 }

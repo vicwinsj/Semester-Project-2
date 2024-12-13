@@ -11,8 +11,6 @@ export async function placeBid(event, id, { _seller, _bids, amount } = {}) {
     amount,
   };
 
-  console.log(data);
-
   try {
     const response = await doFetch(url, {
       method: "POST",

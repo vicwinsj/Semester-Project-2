@@ -1,4 +1,5 @@
 import { accessToken } from "../api/auth/key.js";
+import { GH_BASE } from "../api/constants.js";
 import { generateImageCarousel } from "./imageCarousel.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";
@@ -13,10 +14,10 @@ export async function generateListingContent(listing) {
   generateImageCarousel(listing, imgContainer);
 
   const sellerLink = document.getElementById("listing-seller-link");
-  sellerLink.href = `/profile/index.html?name=${listing.seller.name}`;
+  sellerLink.href = `${GH_BASE}/profile/index.html?name=${listing.seller.name}`;
 
   if (accessToken) {
-    sellerLink.href = `/profile/index.html?name=${listing.seller.name}`;
+    sellerLink.href = `${GH_BASE}/profile/index.html?name=${listing.seller.name}`;
   } else {
     sellerLink.href = "#";
     sellerLink.addEventListener("click", (event) => {
@@ -50,16 +51,6 @@ export async function generateListingContent(listing) {
     "listing-current-bidder-link"
   );
 
-  if (accessToken) {
-    currentBidderLink.href = `/profile/index.html?name=${currentBid.bidder.name}`;
-  } else {
-    currentBidderLink.href = "#";
-    currentBidderLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      alert("You must be logged in to view profiles.");
-    });
-  }
-
   if (listing.bids.length < 1) {
     const noBids = document.getElementById("listing-no-bids");
     noBids.innerText = "No bids yet!";
@@ -75,7 +66,15 @@ export async function generateListingContent(listing) {
     currentBidderAvatar.alt =
       currentBid.bidder.avatar.alt || currentBid.bidder.avatar.url;
 
-    currentBidderLink.href = `/profile/index.html?name=${currentBid.bidder.name}`;
+    if (accessToken) {
+      currentBidderLink.href = `${GH_BASE}/profile/index.html?name=${currentBid.bidder.name}`;
+    } else {
+      currentBidderLink.href = "#";
+      currentBidderLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("You must be logged in to view profiles.");
+      });
+    }
 
     const currentBidDate = document.getElementById("listing-current-bid-date");
     currentBidDate.innerText = creationDate(currentBid);
@@ -102,7 +101,7 @@ export async function generateListingContent(listing) {
       bidderContainer.classList.add("flex", "items-center", "gap-3");
 
       if (accessToken) {
-        bidderContainer.href = `/profile/index.html?name=${bid.bidder.name}`;
+        bidderContainer.href = `${GH_BASE}/profile/index.html?name=${bid.bidder.name}`;
       } else {
         bidderContainer.href = "#";
         bidderContainer.addEventListener("click", (event) => {
