@@ -1,8 +1,10 @@
 import { defineConfig } from "vite";
 
+const isGitHubPages = location.hostname.includes("github.io");
+
 export default defineConfig({
   appType: "mpa",
-  base: process.env.VITE_BASE_URL,
+  base: isGitHubPages ? "/Semester-Project-2/" : "/",
   css: {
     devSourcemap: true,
   },
@@ -16,7 +18,6 @@ export default defineConfig({
         register: "./auth/register/index.html",
         profile: "./profile/index.html",
         listing: "./listing/index.html",
-        // editListing: resolve(__dirname, "./listing/edit/index.html"),
         createListing: "./listing/create/index.html",
       },
     },

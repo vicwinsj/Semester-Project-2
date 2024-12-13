@@ -5,7 +5,3 @@ export function listingUrl(listing) {
   window.location.href = listingUrl;
   return listingUrl;
 }
-
-export function profileUrl(user) {
-  return `${BASE_URL}profile/index.html?name=${user.name}`;
-}

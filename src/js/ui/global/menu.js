@@ -29,7 +29,7 @@ export async function toggleMenu() {
     const user = await fetchUserProfile(loggedInUser.name);
 
     profileButton.classList.remove("hidden");
-    profileButton.href = `${BASE_URL}/profile/?name=${user.name}`;
+    profileButton.href = `${BASE_URL}profile/?name=${user.name}`;
 
     const menuAvatar = document.getElementById("menu-avatar");
     menuAvatar.classList.remove("hidden");
