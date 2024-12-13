@@ -8,7 +8,7 @@ export default async function router(pathname = window.location.pathname) {
   let cleanPath;
 
   if (basePath.length > 1) {
-    cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
+    cleanPath = pathname.slice(basePath.length).replace(/\/index\.html$/, "/");
   } else {
     cleanPath = pathname.replace(/\/index\.html$/, "/");
   }
