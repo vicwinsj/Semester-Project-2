@@ -20,9 +20,14 @@ export async function onRegister(event) {
 
     if (isRegistered) {
       alert("Successfully registered!");
-
-      await login(email, password);
-      window.location.href = `${GH_BASE}`;
+      try {
+        await login({ email, password });
+        window.location.href = `${GH_BASE}`;
+      } catch (loginError) {
+        alert("Login failed. Please try logging in manually.");
+        console.error("Login error after registration:", loginError.message);
+        window.location.href = `${GH_BASE}/auth/login`;
+      }
     }
   } catch (error) {
     console.error("Error in onRegister:", error.message);
