@@ -1,3 +1,4 @@
+import { GH_BASE } from "../../api/constants.js";
 import { login } from "../../api/auth/login.js";
 
 export async function onLogin(event) {
@@ -14,8 +15,7 @@ export async function onLogin(event) {
 
     if (isLoggedIn) {
       console.log("success login");
-      window.location.href = "/";
-    } else {
+      window.location.href = `${GH_BASE}`;
     }
   } catch (error) {
     errorMessage.innerText = `${error.message}`;

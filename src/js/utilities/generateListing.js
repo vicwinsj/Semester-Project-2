@@ -1,6 +1,4 @@
 import { accessToken } from "../api/auth/key.js";
-import { editListingUrl, listingUrl, profileUrl } from "./listingUrl.js";
-import { headers } from "../api/headers.js";
 import { generateImageCarousel } from "./imageCarousel.js";
 import { calculateTimeRemaining } from "./remainingTime.js";
 import { findCurrentBid } from "./currentBid.js";

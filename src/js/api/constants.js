@@ -1,3 +1,5 @@
+export const GH_BASE = "/Semester-Project-2";
+
 export const API_KEY = "efffe6d5-fb4b-4a2c-a744-5dd884d1924e";
 
 export const API_BASE = "https://v2.api.noroff.dev";

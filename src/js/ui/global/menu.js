@@ -1,3 +1,4 @@
+import { GH_BASE } from "../../api/constants.js";
 import { accessToken } from "../../api/auth/key.js";
 import { getUserFromToken } from "../../utilities/decodeToken.js";
 import { fetchUserProfile } from "../../utilities/fetchProfile.js";
@@ -28,7 +29,7 @@ export async function toggleMenu() {
     const user = await fetchUserProfile(loggedInUser.name);
 
     profileButton.classList.remove("hidden");
-    profileButton.href = `/profile/?name=${user.name}`;
+    profileButton.href = `${GH_BASE}/profile/?name=${user.name}`;
 
     const menuAvatar = document.getElementById("menu-avatar");
     menuAvatar.classList.remove("hidden");
