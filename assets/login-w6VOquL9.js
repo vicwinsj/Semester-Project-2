@@ -1,0 +1,1 @@
+import{d as a,e as s,h as i}from"./app-BcuvxLM0.js";import{g as n}from"./errorMessage-IHW2CCLv.js";async function g({email:o,password:t}){try{const r=await a(`${s}`,{method:"POST",body:{email:o,password:t}});return i(r),!0}catch(r){const e=JSON.parse(r.message.split(". ")[1]||"{}");throw console.error("Login error details:",e),n(e),r}}export{g as l};
