@@ -1,6 +1,6 @@
-# Semester Project 2: Auction Website
+# Semester Project 2: HammerPrice
 
-Welcome to my **Semester Project 2**, a project submission during my second year at Front-end Development studies! This project is a front-end auction website where users can create listings, bid on items, and view listings created by others. The application is built using **Vite**, **TailwindCSS**, and JavaScript.
+Welcome to my **Semester Project 2**, a project submission during my second year at Front-end Development studies! This project is a front-end auction website called HammerPrice where users can create listings, bid on items and view listings created by others. The application is built using **Vite**, **TailwindCSS**, and JavaScript.
 
 ---
 
