@@ -21,7 +21,7 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HammerPrice</title>
-    <script type="module" crossorigin src="/Semester-Project-2/assets/app-BcuvxLM0.js"></script>
+    <script type="module" crossorigin src="/Semester-Project-2/assets/app-BfbF6O3d.js"></script>
     <link rel="stylesheet" crossorigin href="/Semester-Project-2/assets/app-DbjzMCLO.css">
   </head>
   <body class="regular-margin regular-padding">
@@ -29,7 +29,11 @@
       class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
     >
       <a href="../" class="text-4xl uppercase"
-        ><img src="../images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
+        ><img
+          src="../images/favicon/favicon.svg"
+          alt="Logo of HammerPrice"
+          class="h-10 w-10 sm:hidden"
+        />
         <p class="hidden sm:flex">
           <span class="font-semibold">Hammer</span
           ><span class="font-normal">Price</span>
@@ -50,6 +54,7 @@
             >
               <label for="search" class="hidden">Search</label>
               <input
+                id="search"
                 type="text"
                 name="search"
                 class="w-full"
@@ -87,7 +92,7 @@
       </div>
     </header>
     <main class="w-full h-full">
-      <div id="profile-content" class="hidden w-full flex-col gap-3">
+      <section id="profile-content" class="hidden w-full flex-col gap-3">
         <h1 class="">
           Profile details of
           <span
@@ -95,7 +100,7 @@
             class="font-tinos italic font-semibold text-primaryBlue"
           ></span>
         </h1>
-        <section
+        <div
           class="relative w-full h-full flex flex-col text-[32px] bg-skyBlue rounded-xl shadow-md gap-10"
         >
           <div id="profile-banner" class="w-full h-72 bg-cover bg-center">
@@ -116,7 +121,6 @@
                 <button
                   id="update-avatar"
                   class="hidden absolute left-0 right-0 bottom-0 pt-3 pb-3 text-base font-semibold text-primaryBlue bg-skyBlue bg-opacity-30 hover:bg-primaryBlue hover:text-white hover:bg-opacity-100"
-                  href=""
                 >
                   Update
                 </button>
@@ -142,8 +146,8 @@
               <p id="profile-bio" class="text-xl p-3 bg-opacity-70"></p>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
