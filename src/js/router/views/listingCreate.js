@@ -1,8 +1,4 @@
-import { authGuard } from "../../utilities/authGuard.js";
-// import { createListing } from "../../api/listing/create.js";
 import { onCreateListing } from "../../ui/listing/create.js";
-
-authGuard();
 
 const form = document.forms.createListing;
 const imgButton = document.getElementById("create-img-btn");

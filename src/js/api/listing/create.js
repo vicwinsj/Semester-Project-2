@@ -1,5 +1,6 @@
 import { BASE_URL, API_AUCTION_LISTINGS } from "../constants.js";
 import { doFetch } from "../../utilities/doFetch.js";
+import { generateErrorMessage } from "../../utilities/errorMessage.js";
 
 export async function createListing({
   title,
@@ -16,6 +17,8 @@ export async function createListing({
     media: media,
   };
 
+  const endDateInput = document.getElementById("create-end-date");
+
   try {
     const response = await doFetch(API_AUCTION_LISTINGS, {
       method: "POST",
@@ -26,6 +29,10 @@ export async function createListing({
       window.location.href = `${BASE_URL}`;
     }
   } catch (error) {
+    endDateInput.classList.add("border", "border-salmonRed", "bg-red-50");
+    const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
+    generateErrorMessage(errorDetails);
+
     console.error("There was a problem with the fetch operation:", error);
   }
 }
