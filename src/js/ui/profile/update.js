@@ -98,6 +98,7 @@ export function onUpdateInitializing(event, user) {
   input.type = "url";
   input.value = user.avatar.url;
   input.placeholder = "Insert image URL";
+  input.id = "avatar-url";
 
   inputContainer.append(label, input);
 

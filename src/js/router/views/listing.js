@@ -39,6 +39,4 @@ export default async function renderListing() {
 
   content.classList.remove("hidden");
   content.classList.add("flex");
-
-  // toggleEditButton(editButton);
 }

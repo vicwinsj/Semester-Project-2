@@ -28,7 +28,11 @@
       class="w-full flex items-center justify-between gap-10 py-5 text-primaryBlue"
     >
       <a href="../" class="text-4xl uppercase"
-        ><img src="../images/favicon/favicon.svg" class="h-10 w-10 sm:hidden" />
+        ><img
+          src="../images/favicon/favicon.svg"
+          alt="Logo of HammerPrice"
+          class="h-10 w-10 sm:hidden"
+        />
         <p class="hidden sm:flex">
           <span class="font-semibold">Hammer</span
           ><span class="font-normal">Price</span>
@@ -49,6 +53,7 @@
             >
               <label for="search" class="hidden">Search</label>
               <input
+                id="search"
                 type="text"
                 name="search"
                 class="w-full"
@@ -126,7 +131,7 @@
               class="flex-[1] flex items-center sm:justify-end gap-3"
             >
               <div class="flex flex-col gap-3">
-                <label class="hidden" for="listing-bid">Bidding amount</label>
+                <label class="hidden" for="bid-amount">Bidding amount</label>
                 <div class="flex flex-col md:flex-row gap-3">
                   <input
                     id="bid-amount"
