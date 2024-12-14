@@ -8,6 +8,8 @@ export async function placeBid(event, id, { _seller, _bids, amount } = {}) {
   if (_seller) url.searchParams.append("_seller", "true");
   if (_bids) url.searchParams.append("_bids", "true");
 
+  const bid = document.getElementById("bid-amount");
+
   const data = {
     amount,
   };
@@ -23,6 +25,7 @@ export async function placeBid(event, id, { _seller, _bids, amount } = {}) {
       location.reload();
     }
   } catch (error) {
+    bid.classList.add("border", "border-salmonRed", "bg-red-50");
     const errorDetails = JSON.parse(error.message.split(". ")[1] || "{}");
     generateErrorMessage(errorDetails);
     console.error("There was a problem with the fetch operation:", error);

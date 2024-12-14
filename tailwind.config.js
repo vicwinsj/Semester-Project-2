@@ -25,10 +25,4 @@ export default {
       },
     },
   },
-  variants: {
-    extend: {
-      backgroundColor: ["not-placeholder-shown"],
-    },
-  },
-  plugins: [],
 };

@@ -40,7 +40,8 @@ export async function generateMostPopular(targetContainer) {
     "w-full",
     "flex",
     "flex-col",
-    "justify-between"
+    "justify-between",
+    "gap-3"
   );
 
   const textContainer = document.createElement("div");
@@ -97,14 +98,20 @@ export async function generateMostPopular(targetContainer) {
   }
 
   const inputContainer = document.createElement("div");
-  inputContainer.classList.add("w-full", "flex", "justify-end");
+  inputContainer.classList.add(
+    "w-full",
+    "flex",
+    "justify-center",
+    "md:justify-end"
+  );
 
   const label = document.createElement("label");
   label.classList.add("hidden");
   label.htmlFor = "bid-amount";
 
   const input = document.createElement("input");
-  input.classList.add("error-field");
+  input.id = "bid-amount";
+  input.classList.add("w-full", "sm:w-1/2", "md:w-auto");
   input.name = "bid-amount";
   input.type = "number";
   input.placeholder = "Enter amount";
@@ -113,7 +120,7 @@ export async function generateMostPopular(targetContainer) {
 
   const button = document.createElement("button");
   button.innerText = "Make bid";
-  button.classList.add("btn", "min-w-32");
+  button.classList.add("w-full", "sm:w-1/2", "md:w-auto", "btn", "min-w-32");
   button.type = "submit";
 
   button.addEventListener("click", (event) => {
@@ -125,11 +132,11 @@ export async function generateMostPopular(targetContainer) {
     placeBid(event, id, { amount });
   });
 
-  form.append(inputContainer, button);
-
   const errorMessage = document.createElement("p");
   errorMessage.id = "error-message";
-  errorMessage.classList.add("self-end", "h-3");
+  errorMessage.classList.add("h-6", "self-center", "md:self-end");
+
+  form.append(inputContainer, button);
 
   bidContainer.append(bids, form, errorMessage);
 

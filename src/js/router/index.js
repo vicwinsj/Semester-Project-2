@@ -11,14 +11,11 @@ export default async function router(pathname = window.location.pathname) {
     cleanPath = pathname.replace(/\/index\.html$/, "/");
   }
 
-  console.log(cleanPath);
-
   let view;
 
   switch (cleanPath) {
     case "/":
       view = await import("./views/home.js");
-      console.log(cleanPath);
       break;
     case "/auth/login/":
       view = await import("./views/login.js");
