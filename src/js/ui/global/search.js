@@ -13,9 +13,7 @@ export async function search() {
 
     const searchKeyword = searchInput.value.trim();
 
-    if (!searchKeyword) {
-      return;
-    }
+    if (!searchKeyword) return;
 
     const newUrl = `${BASE_URL}?q=${encodeURIComponent(searchKeyword)}`;
     window.history.replaceState({}, document.title, newUrl);
