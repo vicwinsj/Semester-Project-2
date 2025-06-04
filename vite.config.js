@@ -1,9 +1,6 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  // const isGitHubPages = mode === "production";
-  // const base = isGitHubPages ? "/Semester-Project-2/" : "/";
-
   appType: "mpa",
   base: "/",
   css: {
