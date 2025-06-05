@@ -12,11 +12,13 @@ const burgerButton = document.getElementById("burger");
 const menu = document.getElementById("menu");
 
 export async function toggleMenu() {
-  burgerButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("flex");
-  });
+  if (!window.location.pathname.startsWith("/auth/")) {
+    burgerButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
+    });
+  }
 
   if (accessToken) {
     const loggedInUser = getUserFromToken();
